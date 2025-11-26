@@ -52,3 +52,4 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+/Core/BitirmeÖdevi_CarReservation.Application/Features/Mediator/Handlers/BlogHandlers/UpdateBlogCommandHandler.cs

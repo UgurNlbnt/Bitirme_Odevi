@@ -1,0 +1,222 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+@await Component.InvokeAsync("_HeadUILayoutComponentPartial")
+
+<body>
+
+    @await Component.InvokeAsync("_NavbarUILayoutComponentPartial")
+       
+    <!-- END nav -->
+    @await Component.InvokeAsync("_DefaultCoverUILayoutComponentPartial")
+
+  
+    <section class="ftco-section ftco-no-pt bg-light">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-md-12 featured-top">
+                    <div class="row no-gutters">
+                        <div class="col-md-4 d-flex align-items-center">
+                            <form action="#" class="request-form ftco-animate bg-primary">
+                                <h2>Seyahatinizi Planlayın</h2>
+                                <div class="form-group">
+                                    <label for="" class="label">Alış Lokasyonu</label>
+                                    <input type="text" class="form-control" placeholder="Şehir, Havalimanı, İstasyon vb.">
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="label">Teslim Lokasyonu</label>
+                                    <input type="text" class="form-control" placeholder="Şehir, Havalimanı, İstasyon vb.">
+                                </div>
+                                <div class="d-flex">
+                                    <div class="form-group mr-2">
+                                        <label for="" class="label">Alış Tarihi</label>
+                                        <input type="text" class="form-control" id="book_pick_date" placeholder="Tarih">
+                                    </div>
+                                    <div class="form-group ml-2">
+                                        <label for="" class="label">Teslim Tarihi</label>
+                                        <input type="text" class="form-control" id="book_off_date" placeholder="Tarih">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="label">Alış Saati</label>
+                                    <input type="text" class="form-control" id="time_pick" placeholder="Saat">
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Hemen Araç Kirala" class="btn btn-secondary py-3 px-4">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-md-8 d-flex align-items-center">
+                            <div class="services-wrap rounded-right w-100">
+                                <h3 class="heading-section mb-4">Aracınızı Kiralamanın En Kolay Yolu</h3>
+                                <div class="row d-flex mb-4">
+                                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                        <div class="services w-100 text-center">
+                                            <div class="icon d-flex align-items-center justify-content-center">
+                                                <span class="flaticon-route"></span>
+                                            </div>
+                                            <div class="text w-100">
+                                                <h3 class="heading mb-2">Alış Noktanızı Seçin</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                        <div class="services w-100 text-center">
+                                            <div class="icon d-flex align-items-center justify-content-center">
+                                                <span class="flaticon-handshake"></span>
+                                            </div>
+                                            <div class="text w-100">
+                                                <h3 class="heading mb-2">En Uygun Tutarı Seçin</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                        <div class="services w-100 text-center">
+                                            <div class="icon d-flex align-items-center justify-content-center">
+                                                <span class="flaticon-rent"></span>
+                                            </div>
+                                            <div class="text w-100">
+                                                <h3 class="heading mb-2">Araç Rezervasyonunuzu Yapın</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p>
+                                    <a href="#" class="btn btn-primary py-3 px-4">
+                                        Aracınızı Kiralayın
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    @await Component.InvokeAsync("_DefaultLast5CarWithBrandComponentPartial")
+
+    @await Component.InvokeAsync("_AboutUsComponentPartial")
+
+    @await Component.InvokeAsync("_ServiceViewComponentPartial")
+
+    @await Component.InvokeAsync("_BecomeADriverComponentPartial")
+
+    @await Component.InvokeAsync("_TestimonialComponentPartial")
+
+    <!--<section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <span class="subheading">Blog</span>
+                    <h2>Recent Blog</h2>
+                </div>
+            </div>
+            <div class="row d-flex">
+                <div class="col-md-4 d-flex ftco-animate">
+                    <div class="blog-entry justify-content-end">
+                        <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+                        </a>
+                        <div class="text pt-4">
+                            <div class="meta mb-3">
+                                <div><a href="#">Oct. 29, 2019</a></div>
+                                <div><a href="#">Admin</a></div>
+                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                            </div>
+                            <h3 class="heading mt-2"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                            <p><a href="#" class="btn btn-primary">Read more</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex ftco-animate">
+                    <div class="blog-entry justify-content-end">
+                        <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+                        </a>
+                        <div class="text pt-4">
+                            <div class="meta mb-3">
+                                <div><a href="#">Oct. 29, 2019</a></div>
+                                <div><a href="#">Admin</a></div>
+                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                            </div>
+                            <h3 class="heading mt-2"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                            <p><a href="#" class="btn btn-primary">Read more</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex ftco-animate">
+                    <div class="blog-entry">
+                        <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+                        </a>
+                        <div class="text pt-4">
+                            <div class="meta mb-3">
+                                <div><a href="#">Oct. 29, 2019</a></div>
+                                <div><a href="#">Admin</a></div>
+                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                            </div>
+                            <h3 class="heading mt-2"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                            <p><a href="#" class="btn btn-primary">Read more</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-counter ftco-section img bg-light" id="section-counter">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18">
+                        <div class="text text-border d-flex align-items-center">
+                            <strong class="number" data-number="60">0</strong>
+                            <span>Year <br>Experienced</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18">
+                        <div class="text text-border d-flex align-items-center">
+                            <strong class="number" data-number="1090">0</strong>
+                            <span>Total <br>Cars</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18">
+                        <div class="text text-border d-flex align-items-center">
+                            <strong class="number" data-number="2590">0</strong>
+                            <span>Happy <br>Customers</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18">
+                        <div class="text d-flex align-items-center">
+                            <strong class="number" data-number="67">0</strong>
+                            <span>Total <br>Branches</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    @await Component.InvokeAsync("_FooterUILayoutComponentPartial")
+
+    @await Component.InvokeAsync("_ScriptUILayoutComponentPartial")
+</body>
+</html>
+

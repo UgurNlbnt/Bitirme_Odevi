@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Core",
+    "\\Core\\BitirmeÖdevi_CarReservation.Application",
+    "\\Core\\BitirmeÖdevi_CarReservation.Application\\Features",
+    "\\Core\\BitirmeÖdevi_CarReservation.Application\\Features\\Mediator",
+    "\\Core\\BitirmeÖdevi_CarReservation.Application\\Features\\Mediator\\Handlers",
+    "\\Core\\BitirmeÖdevi_CarReservation.Application\\Features\\Mediator\\Handlers\\BlogHandlers",
+    "\\Core\\BitirmeÖdevi_CarReservation.Domain\\Entities"
+  ],
+  "SelectedNode": "\\Core\\BitirmeÖdevi_CarReservation.Application\\Features\\Mediator\\Handlers\\BlogHandlers\\GetBlogByIdQueryHandler.cs",
+  "PreviewInSolutionExplorer": false
+}
