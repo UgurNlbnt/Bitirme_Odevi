@@ -11,6 +11,8 @@ using BitirmeÖdevi_CarReservation.Persistence.Context;
 using BitirmeÖdevi_CarReservation.Persistence.Repositories;
 using BitirmeÖdevi_CarReservation.Persistence.Repositories.CarRepositories;
 using BitirmeÖdevi_CarReservation.Application.Services;
+using BitirmeÖdevi_CarReservation.Persistence.Repositories.BlogRepositories;
+using BitirmeÖdevi_CarReservation.Application.Interface.BlogInterfaces;
 
 
 namespace BitirmeÖdevi_CarReservation.WebApi
@@ -26,6 +28,8 @@ namespace BitirmeÖdevi_CarReservation.WebApi
             builder.Services.AddScoped<CarBookContext>();
             builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
             builder.Services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
+            builder.Services.AddScoped(typeof(IBlogRepositoy), typeof(BlogRepository));
+
 
             //AboutHandlerları ekledik.
             builder.Services.AddScoped<GetAboutByIdQueryHandler>();
