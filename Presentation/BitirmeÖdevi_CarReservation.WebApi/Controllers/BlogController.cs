@@ -58,5 +58,12 @@ namespace BitirmeÖdevi_CarReservation.WebApi.Controllers
             var values = await _mediator.Send(new GetLast3BlogsWithAuthorsQuery());
             return Ok(values);
         }
+
+        [HttpGet("GetAllBlogsWithAuthorsList")]
+        public async Task<IActionResult> GetAllBlogsWithAuthorsList()
+        {
+            var values = await _mediator.Send(new GetAllBlogsWithAuthorQuery());
+            return Ok(values);
+        }
     }
 }

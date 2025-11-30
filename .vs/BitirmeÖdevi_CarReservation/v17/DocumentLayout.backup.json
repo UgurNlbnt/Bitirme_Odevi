@@ -1,54 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|c:\\users\\u\u011Fur\\desktop\\bitirmeprojesicarreservation\\bitirme_odevi\\frondends\\bitirmeprojesicarreservation.webui\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|solutionrelative:frondends\\bitirmeprojesicarreservation.webui\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|c:\\users\\u\u011Fur\\desktop\\bitirmeprojesicarreservation\\bitirme_odevi\\frondends\\bitirmeprojesicarreservation.webui\\views\\default\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|solutionrelative:frondends\\bitirmeprojesicarreservation.webui\\views\\default\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Contact\\Index.cshtml",
-              "RelativeDocumentMoniker": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Contact\\Index.cshtml",
-              "ToolTip": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Contact\\Index.cshtml",
-              "RelativeToolTip": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Contact\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-28T16:57:25.933Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Default\\Index.cshtml",
-              "RelativeDocumentMoniker": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Default\\Index.cshtml",
-              "ToolTip": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Default\\Index.cshtml",
-              "RelativeToolTip": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Default\\Index.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-28T16:17:03.345Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

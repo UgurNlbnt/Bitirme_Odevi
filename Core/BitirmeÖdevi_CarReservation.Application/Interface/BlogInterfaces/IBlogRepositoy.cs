@@ -10,5 +10,6 @@ namespace BitirmeÖdevi_CarReservation.Application.Interface.BlogInterfaces
     public interface IBlogRepositoy
     {
         public List<Blog> GetLast3BlogsWithAuthorsList();
+        public List<Blog> GetAllBlogsWithAuthorsList();
     }
 }

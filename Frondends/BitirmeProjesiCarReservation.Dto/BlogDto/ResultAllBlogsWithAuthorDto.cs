@@ -4,23 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BitirmeÖdevi_CarReservation.Domain.Entities
+namespace BitirmeProjesiCarReservation.Dto.BlogDto
 {
-    public class Blog
+    public class ResultAllBlogsWithAuthorDto
     {
         public int BlogId { get; set; }
         public string Title { get; set; }
-        public int AuthorId { get; set; }
-
-        public Author Author { get; set; }
-
-        public string CoverImageUrl { get; set; }
-
-        public DateTime CreatedDate { get; set; }
-        public int  CategoryID { get; set; }
-
-        public Category Category { get; set; }
+        public string AuthorName { get; set; }
         public string Description { get; set; }
-
+        public string CategoryName { get; set; }
+        public int AuthorId { get; set; }
+        public string CoverImageUrl { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int CategoryID { get; set; }
     }
 }

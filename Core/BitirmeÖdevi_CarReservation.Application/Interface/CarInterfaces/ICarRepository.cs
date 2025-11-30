@@ -11,6 +11,7 @@ namespace BitirmeÖdevi_CarReservation.Application.Interface.CarInterfaces
     {
         List<Car> GetCarsListWithBrands();
         List<Car> GetLast5CarsWithBrands();
+       
 
     }
 }

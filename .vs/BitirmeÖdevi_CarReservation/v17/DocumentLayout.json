@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{52401AA5-3E14-44C4-BBD4-566BED2DA4C4}|Infrastructure\\Bitirme\u00D6devi_CarReservation.Persistence\\Bitirme\u00D6devi_CarReservation.Persistence.csproj|c:\\users\\u\u011Fur\\desktop\\bitirmeprojesicarreservation\\bitirme_odevi\\infrastructure\\bitirme\u00F6devi_carreservation.persistence\\context\\carbookcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52401AA5-3E14-44C4-BBD4-566BED2DA4C4}|Infrastructure\\Bitirme\u00D6devi_CarReservation.Persistence\\Bitirme\u00D6devi_CarReservation.Persistence.csproj|solutionrelative:infrastructure\\bitirme\u00F6devi_carreservation.persistence\\context\\carbookcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CarBookContext.cs",
+              "DocumentMoniker": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Infrastructure\\Bitirme\u00D6devi_CarReservation.Persistence\\Context\\CarBookContext.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Bitirme\u00D6devi_CarReservation.Persistence\\Context\\CarBookContext.cs",
+              "ToolTip": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Infrastructure\\Bitirme\u00D6devi_CarReservation.Persistence\\Context\\CarBookContext.cs",
+              "RelativeToolTip": "Infrastructure\\Bitirme\u00D6devi_CarReservation.Persistence\\Context\\CarBookContext.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwCYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T09:26:50.874Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

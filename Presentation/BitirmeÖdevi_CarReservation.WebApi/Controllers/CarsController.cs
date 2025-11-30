@@ -16,6 +16,7 @@ namespace BitirmeÖdevi_CarReservation.WebApi.Controllers
         private readonly RemoveCarCommandHandler _removeCarCommandHandler;
         private readonly GetCarWithBrandQueryHandler _getCarWithBrandQueryHandler;
         private readonly GetLast5CarsWithBrandQueryHandler _getLast5CarsWithBrandQueryHandler;
+       
 
         //olusturdugum degıskenler yardımıyla handlerlara ulasabilecegim
         public CarController(CreateCarCommandHandler createCarCommandHandler,
@@ -81,6 +82,8 @@ namespace BitirmeÖdevi_CarReservation.WebApi.Controllers
             var values = _getLast5CarsWithBrandQueryHandler.Handle();
             return Ok(values);
         }
+
+       
 
     }
 }
