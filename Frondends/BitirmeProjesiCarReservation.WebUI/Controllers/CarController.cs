@@ -17,14 +17,14 @@ namespace BitirmeProjesiCarReservation.WebUI.Controllers
 
         public async Task<IActionResult> Index()
         {
-            ViewBag.v1 = "Araçlarımız";
+            ViewBag.v1 = "Araçlarımız"; //Controller’dan View’a küçük, geçici bilgiler göndermek için kullanılır.
             ViewBag.v2 = "Aracınızı Seçiniz";
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7096/api/CarPricings/GetCarPricingWithCarList");
+            var responseMessage = await client.GetAsync("https://localhost:7096/api/CarPricings/GetCarPricingWithCarList"); //apiden gelen veri jsondur.
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultCarPricingWithCarDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultCarPricingWithCarDto>>(jsonData); //jsondan nesneye çevirme
                 return View(values);
             }
 
@@ -32,3 +32,14 @@ namespace BitirmeProjesiCarReservation.WebUI.Controllers
         }
     }
 }
+//Bu client ile API’ya GET isteği gönderir.
+
+//API’dan gelen cevap başarılı mı? diye kontrol eder.
+
+//Başarılıysa içerikteki JSON metni okunur.
+
+//JSON, ResultCarPricingWithCarDto listesine deserialize edilerek C# objelerine çevrilir.
+
+//Bu liste View’a gönderilir ve ekranda araç + fiyat bilgileri gösterilir.
+
+//Eğer API başarısız dönerse boş bir View gönderilir (çökme olmaz).

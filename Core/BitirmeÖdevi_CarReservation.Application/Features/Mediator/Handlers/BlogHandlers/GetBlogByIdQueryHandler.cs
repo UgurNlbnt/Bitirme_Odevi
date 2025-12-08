@@ -32,6 +32,7 @@ namespace BitirmeÖdevi_CarReservation.Application.Features.Mediator.Handlers.Bl
                 CreatedDate = value.CreatedDate,
                 CoverImageUrl = value.CoverImageUrl,
                 CategoryID = value.CategoryID,
+                Description = value.Description
             };
         }
     }

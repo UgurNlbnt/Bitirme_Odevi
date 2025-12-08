@@ -33,7 +33,8 @@ namespace BitirmeProjesiCarReservation.WebUI.Controllers
         {
             ViewBag.v1 = "Bloglar";
             ViewBag.v2 = "Blog Detayları";
-            
+            ViewBag.blogId = id;
+
             return View();
         }
     }
