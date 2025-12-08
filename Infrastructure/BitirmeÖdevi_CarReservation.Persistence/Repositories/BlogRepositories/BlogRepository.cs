@@ -24,6 +24,12 @@ namespace BitirmeÖdevi_CarReservation.Persistence.Repositories.BlogRepositories
             return values;
         }
 
+        public List<Blog> GetBlogByAuthorId(int id)
+        {
+            var valurs = _context.Blogs.Include(b => b.Author).Where(b => b.BlogId == id).ToList();
+            return valurs;
+        }
+
         public List<Blog> GetLast3BlogsWithAuthorsList()
         {
             var valurs = _context.Blogs.Include(b => b.Author).OrderByDescending(b => b.BlogId).Take(3).ToList();

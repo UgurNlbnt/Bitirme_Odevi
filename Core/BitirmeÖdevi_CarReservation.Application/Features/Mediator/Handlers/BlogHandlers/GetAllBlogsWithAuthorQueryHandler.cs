@@ -31,6 +31,8 @@ namespace BitirmeÖdevi_CarReservation.Application.Features.Mediator.Handlers.Bl
                 Title = b.Title,
                 AuthorName = b.Author.Name,
                 Description = b.Description,
+                AuthorDescription = b.Author.Description,
+                AuthorImageUrl = b.Author.ImageUrl,
 
             }).ToList();
         }

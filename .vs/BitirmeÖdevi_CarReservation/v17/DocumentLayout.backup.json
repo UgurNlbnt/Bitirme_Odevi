@@ -3,16 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|c:\\users\\u\u011Fur\\desktop\\bitirmeprojesicarreservation\\bitirme_odevi\\frondends\\bitirmeprojesicarreservation.webui\\views\\blog\\blogdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|solutionrelative:frondends\\bitirmeprojesicarreservation.webui\\views\\blog\\blogdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|c:\\users\\u\u011Fur\\desktop\\bitirmeprojesicarreservation\\bitirme_odevi\\frondends\\bitirmeprojesicarreservation.webui\\views\\default\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|solutionrelative:frondends\\bitirmeprojesicarreservation.webui\\views\\default\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|c:\\users\\u\u011Fur\\desktop\\bitirmeprojesicarreservation\\bitirme_odevi\\frondends\\bitirmeprojesicarreservation.webui\\views\\shared\\components\\_blogdetailcloudtagbyblogcomponentpartial\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|solutionrelative:frondends\\bitirmeprojesicarreservation.webui\\views\\shared\\components\\_blogdetailcloudtagbyblogcomponentpartial\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|c:\\users\\u\u011Fur\\desktop\\bitirmeprojesicarreservation\\bitirme_odevi\\frondends\\bitirmeprojesicarreservation.webui\\views\\shared\\components\\_blogdetailsauthoraboutcomponentpartial\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|solutionrelative:frondends\\bitirmeprojesicarreservation.webui\\views\\shared\\components\\_blogdetailsauthoraboutcomponentpartial\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|c:\\users\\u\u011Fur\\desktop\\bitirmeprojesicarreservation\\bitirme_odevi\\frondends\\bitirmeprojesicarreservation.webui\\views\\shared\\components\\_blogdetailstagcloudcomponentpartial\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|solutionrelative:frondends\\bitirmeprojesicarreservation.webui\\views\\shared\\components\\_blogdetailstagcloudcomponentpartial\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|c:\\users\\u\u011Fur\\desktop\\bitirmeprojesicarreservation\\bitirme_odevi\\frondends\\bitirmeprojesicarreservation.webui\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|solutionrelative:frondends\\bitirmeprojesicarreservation.webui\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9604B43-2794-44B8-AC56-438F66155464}|Core\\Bitirme\u00D6devi_CarReservation.Application\\Bitirme\u00D6devi_CarReservation.Application.csproj|c:\\users\\u\u011Fur\\desktop\\bitirmeprojesicarreservation\\bitirme_odevi\\core\\bitirme\u00F6devi_carreservation.application\\features\\mediator\\handlers\\bloghandlers\\getallblogswithauthorqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9604B43-2794-44B8-AC56-438F66155464}|Core\\Bitirme\u00D6devi_CarReservation.Application\\Bitirme\u00D6devi_CarReservation.Application.csproj|solutionrelative:core\\bitirme\u00F6devi_carreservation.application\\features\\mediator\\handlers\\bloghandlers\\getallblogswithauthorqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|c:\\users\\u\u011Fur\\desktop\\bitirmeprojesicarreservation\\bitirme_odevi\\frondends\\bitirmeprojesicarreservation.webui\\views\\shared\\components\\_blogdetailsmaincomponentpartial\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|solutionrelative:frondends\\bitirmeprojesicarreservation.webui\\views\\shared\\components\\_blogdetailsmaincomponentpartial\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9604B43-2794-44B8-AC56-438F66155464}|Core\\Bitirme\u00D6devi_CarReservation.Application\\Bitirme\u00D6devi_CarReservation.Application.csproj|c:\\users\\u\u011Fur\\desktop\\bitirmeprojesicarreservation\\bitirme_odevi\\core\\bitirme\u00F6devi_carreservation.application\\features\\mediator\\results\\blogresults\\getallblogswithauthorqueryresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9604B43-2794-44B8-AC56-438F66155464}|Core\\Bitirme\u00D6devi_CarReservation.Application\\Bitirme\u00D6devi_CarReservation.Application.csproj|solutionrelative:core\\bitirme\u00F6devi_carreservation.application\\features\\mediator\\results\\blogresults\\getallblogswithauthorqueryresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|c:\\users\\u\u011Fur\\desktop\\bitirmeprojesicarreservation\\bitirme_odevi\\frondends\\bitirmeprojesicarreservation.webui\\viewcomponents\\blogviewcomponents\\_blogdetailsauthoraboutcomponentpartial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A73ED7-1FCE-47A0-B1FE-D6BF855A23B0}|Frondends\\BitirmeProjesiCarReservation.WebUI\\BitirmeProjesiCarReservation.WebUI.csproj|solutionrelative:frondends\\bitirmeprojesicarreservation.webui\\viewcomponents\\blogviewcomponents\\_blogdetailsauthoraboutcomponentpartial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C12507A-1BA1-43DC-8EA0-077C71004F9A}|Frondends\\BitirmeProjesiCarReservation.Dto\\BitirmeProjesiCarReservation.Dto.csproj|c:\\users\\u\u011Fur\\desktop\\bitirmeprojesicarreservation\\bitirme_odevi\\frondends\\bitirmeprojesicarreservation.dto\\authordto\\getauthorbyblogauthoriddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C12507A-1BA1-43DC-8EA0-077C71004F9A}|Frondends\\BitirmeProjesiCarReservation.Dto\\BitirmeProjesiCarReservation.Dto.csproj|solutionrelative:frondends\\bitirmeprojesicarreservation.dto\\authordto\\getauthorbyblogauthoriddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +47,105 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BlogDetail.cshtml",
-              "DocumentMoniker": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Blog\\BlogDetail.cshtml",
-              "RelativeDocumentMoniker": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Blog\\BlogDetail.cshtml",
-              "ToolTip": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Blog\\BlogDetail.cshtml",
-              "RelativeToolTip": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Blog\\BlogDetail.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAKAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Default\\Index.cshtml",
+              "RelativeDocumentMoniker": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Default\\Index.cshtml",
+              "ToolTip": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Default\\Index.cshtml",
+              "RelativeToolTip": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Default\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T08:47:57.682Z",
+              "WhenOpened": "2025-12-08T09:39:51.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GetAllBlogsWithAuthorQueryResult.cs",
+              "DocumentMoniker": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Core\\Bitirme\u00D6devi_CarReservation.Application\\Features\\Mediator\\Results\\BlogResults\\GetAllBlogsWithAuthorQueryResult.cs",
+              "RelativeDocumentMoniker": "Core\\Bitirme\u00D6devi_CarReservation.Application\\Features\\Mediator\\Results\\BlogResults\\GetAllBlogsWithAuthorQueryResult.cs",
+              "ToolTip": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Core\\Bitirme\u00D6devi_CarReservation.Application\\Features\\Mediator\\Results\\BlogResults\\GetAllBlogsWithAuthorQueryResult.cs",
+              "RelativeToolTip": "Core\\Bitirme\u00D6devi_CarReservation.Application\\Features\\Mediator\\Results\\BlogResults\\GetAllBlogsWithAuthorQueryResult.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAcwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T09:38:09.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GetAllBlogsWithAuthorQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Core\\Bitirme\u00D6devi_CarReservation.Application\\Features\\Mediator\\Handlers\\BlogHandlers\\GetAllBlogsWithAuthorQueryHandler.cs",
+              "RelativeDocumentMoniker": "Core\\Bitirme\u00D6devi_CarReservation.Application\\Features\\Mediator\\Handlers\\BlogHandlers\\GetAllBlogsWithAuthorQueryHandler.cs",
+              "ToolTip": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Core\\Bitirme\u00D6devi_CarReservation.Application\\Features\\Mediator\\Handlers\\BlogHandlers\\GetAllBlogsWithAuthorQueryHandler.cs",
+              "RelativeToolTip": "Core\\Bitirme\u00D6devi_CarReservation.Application\\Features\\Mediator\\Handlers\\BlogHandlers\\GetAllBlogsWithAuthorQueryHandler.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAIwBoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T09:37:45.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-08T09:30:24.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailsMainComponentPartial\\Default.cshtml",
+              "RelativeDocumentMoniker": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailsMainComponentPartial\\Default.cshtml",
+              "ToolTip": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailsMainComponentPartial\\Default.cshtml",
+              "RelativeToolTip": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailsMainComponentPartial\\Default.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-08T09:28:46.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GetAuthorByBlogAuthorIdDto.cs",
+              "DocumentMoniker": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.Dto\\AuthorDto\\GetAuthorByBlogAuthorIdDto.cs",
+              "RelativeDocumentMoniker": "Frondends\\BitirmeProjesiCarReservation.Dto\\AuthorDto\\GetAuthorByBlogAuthorIdDto.cs",
+              "ToolTip": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.Dto\\AuthorDto\\GetAuthorByBlogAuthorIdDto.cs",
+              "RelativeToolTip": "Frondends\\BitirmeProjesiCarReservation.Dto\\AuthorDto\\GetAuthorByBlogAuthorIdDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T09:25:40.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_BlogDetailsAuthorAboutComponentPartial.cs",
+              "DocumentMoniker": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\ViewComponents\\BlogViewComponents\\_BlogDetailsAuthorAboutComponentPartial.cs",
+              "RelativeDocumentMoniker": "Frondends\\BitirmeProjesiCarReservation.WebUI\\ViewComponents\\BlogViewComponents\\_BlogDetailsAuthorAboutComponentPartial.cs",
+              "ToolTip": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\ViewComponents\\BlogViewComponents\\_BlogDetailsAuthorAboutComponentPartial.cs",
+              "RelativeToolTip": "Frondends\\BitirmeProjesiCarReservation.WebUI\\ViewComponents\\BlogViewComponents\\_BlogDetailsAuthorAboutComponentPartial.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAkwBUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T09:25:33.175Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailCloudTagByBlogComponentPartial\\Default.cshtml",
-              "RelativeDocumentMoniker": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailCloudTagByBlogComponentPartial\\Default.cshtml",
-              "ToolTip": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailCloudTagByBlogComponentPartial\\Default.cshtml",
-              "RelativeToolTip": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailCloudTagByBlogComponentPartial\\Default.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAGAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailsAuthorAboutComponentPartial\\Default.cshtml",
+              "RelativeDocumentMoniker": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailsAuthorAboutComponentPartial\\Default.cshtml",
+              "ToolTip": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailsAuthorAboutComponentPartial\\Default.cshtml",
+              "RelativeToolTip": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailsAuthorAboutComponentPartial\\Default.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T08:12:39.18Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailsTagCloudComponentPartial\\Default.cshtml",
-              "RelativeDocumentMoniker": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailsTagCloudComponentPartial\\Default.cshtml",
-              "ToolTip": "C:\\Users\\U\u011EUR\\Desktop\\BitirmeProjesiCarReservation\\Bitirme_Odevi\\Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailsTagCloudComponentPartial\\Default.cshtml",
-              "RelativeToolTip": "Frondends\\BitirmeProjesiCarReservation.WebUI\\Views\\Shared\\Components\\_BlogDetailsTagCloudComponentPartial\\Default.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T08:12:25.318Z",
+              "WhenOpened": "2025-12-08T08:55:01.281Z",
               "EditorCaption": ""
             }
           ]
