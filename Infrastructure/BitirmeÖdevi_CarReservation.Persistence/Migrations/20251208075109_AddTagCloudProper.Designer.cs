@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BitirmeÖdevi_CarReservation.Persistence.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    [Migration("20251207162617_mig_add_tagcloud")]
-    partial class mig_add_tagcloud
+    [Migration("20251208075109_AddTagCloudProper")]
+    partial class AddTagCloudProper
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -470,7 +470,7 @@ namespace BitirmeÖdevi_CarReservation.Persistence.Migrations
                     b.Property<int>("BlodId")
                         .HasColumnType("int");
 
-                    b.Property<int>("BlogId")
+                    b.Property<int?>("BlogId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -594,13 +594,9 @@ namespace BitirmeÖdevi_CarReservation.Persistence.Migrations
 
             modelBuilder.Entity("BitirmeÖdevi_CarReservation.Domain.Entities.TagCloud", b =>
                 {
-                    b.HasOne("BitirmeÖdevi_CarReservation.Domain.Entities.Blog", "Blog")
+                    b.HasOne("BitirmeÖdevi_CarReservation.Domain.Entities.Blog", null)
                         .WithMany("TagClouds")
-                        .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Blog");
+                        .HasForeignKey("BlogId");
                 });
 
             modelBuilder.Entity("BitirmeÖdevi_CarReservation.Domain.Entities.Author", b =>

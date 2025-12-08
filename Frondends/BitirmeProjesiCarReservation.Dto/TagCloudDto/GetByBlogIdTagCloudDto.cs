@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BitirmeÖdevi_CarReservation.Domain.Entities
+namespace BitirmeProjesiCarReservation.Dto.TagCloudDto
 {
-    public class TagCloud
+    public class GetByBlogIdTagCloudDto
     {
         public int TagCloudId { get; set; }
         public string Title { get; set; }
         public int BlodId { get; set; }
-
     }
 }

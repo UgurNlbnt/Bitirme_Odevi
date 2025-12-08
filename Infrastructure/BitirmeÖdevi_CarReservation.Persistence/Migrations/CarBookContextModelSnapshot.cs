@@ -467,7 +467,7 @@ namespace BitirmeÖdevi_CarReservation.Persistence.Migrations
                     b.Property<int>("BlodId")
                         .HasColumnType("int");
 
-                    b.Property<int>("BlogId")
+                    b.Property<int?>("BlogId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -591,13 +591,9 @@ namespace BitirmeÖdevi_CarReservation.Persistence.Migrations
 
             modelBuilder.Entity("BitirmeÖdevi_CarReservation.Domain.Entities.TagCloud", b =>
                 {
-                    b.HasOne("BitirmeÖdevi_CarReservation.Domain.Entities.Blog", "Blog")
+                    b.HasOne("BitirmeÖdevi_CarReservation.Domain.Entities.Blog", null)
                         .WithMany("TagClouds")
-                        .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Blog");
+                        .HasForeignKey("BlogId");
                 });
 
             modelBuilder.Entity("BitirmeÖdevi_CarReservation.Domain.Entities.Author", b =>

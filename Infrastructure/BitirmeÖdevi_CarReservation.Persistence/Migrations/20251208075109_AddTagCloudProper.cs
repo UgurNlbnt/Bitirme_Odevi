@@ -5,7 +5,7 @@
 namespace BitirmeÖdevi_CarReservation.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class mig_add_tagcloud : Migration
+    public partial class AddTagCloudProper : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,7 @@ namespace BitirmeÖdevi_CarReservation.Persistence.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BlodId = table.Column<int>(type: "int", nullable: false),
-                    BlogId = table.Column<int>(type: "int", nullable: false)
+                    BlogId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -27,8 +27,7 @@ namespace BitirmeÖdevi_CarReservation.Persistence.Migrations
                         name: "FK_TagClouds_Blogs_BlogId",
                         column: x => x.BlogId,
                         principalTable: "Blogs",
-                        principalColumn: "BlogId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "BlogId");
                 });
 
             migrationBuilder.CreateIndex(

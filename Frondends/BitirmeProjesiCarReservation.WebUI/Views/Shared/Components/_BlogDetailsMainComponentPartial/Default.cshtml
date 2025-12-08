@@ -6,7 +6,7 @@
         @Model.Description
     </p>
 
-    @await Component.InvokeAsync("_BlogDetailCloudTagByBlogComponentPartial")
+    @await Component.InvokeAsync("_BlogDetailCloudTagByBlogComponentPartial", new { id = ViewBag.blogId })
 
     @await Component.InvokeAsync("_BlogDetailsAuthorAboutComponentPartial")
 
