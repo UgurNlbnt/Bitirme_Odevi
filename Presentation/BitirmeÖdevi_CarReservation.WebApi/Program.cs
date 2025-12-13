@@ -17,6 +17,8 @@ using BitirmeÖdevi_CarReservation.Application.Interface.CarPricingInterfaces;
 using BitirmeÖdevi_CarReservation.Persistence.Repositories.CarPricingRepositories;
 using BitirmeÖdevi_CarReservation.Application.Interface.TagCloudInterfaces;
 using BitirmeÖdevi_CarReservation.Persistence.Repositories.TagCloudRepositories;
+using BitirmeÖdevi_CarReservation.Application.Features.Repository_Pattern.CommentRepositories;
+using BitirmeÖdevi_CarReservation.Persistence.Repositories.CommentRepositories;
 
 
 namespace BitirmeÖdevi_CarReservation.WebApi
@@ -35,6 +37,7 @@ namespace BitirmeÖdevi_CarReservation.WebApi
             builder.Services.AddScoped(typeof(IBlogRepositoy), typeof(BlogRepository));
             builder.Services.AddScoped(typeof(ICarPricingRepository), typeof(CarPricingRepository));
             builder.Services.AddScoped(typeof(ITagCloudRepository), typeof(TagCloudRepository));
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(CommentRepository<>));
 
 
             //AboutHandlerları ekledik.

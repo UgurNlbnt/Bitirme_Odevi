@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace BitirmeÖdevi_CarReservation.Domain.Entities
 {
@@ -22,6 +23,7 @@ namespace BitirmeÖdevi_CarReservation.Domain.Entities
         public Category Category { get; set; }
         public string Description { get; set; }
         public List<TagCloud> TagClouds { get; set; }
+        public List<Comment> Comments { get; set; }
 
 
     }
