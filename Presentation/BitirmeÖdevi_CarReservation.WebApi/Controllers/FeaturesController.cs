@@ -38,7 +38,7 @@ namespace BitirmeÖdevi_CarReservation.WebApi.Controllers
             return Ok("Özellik başarılı bir şekilde eklendi.");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFeature(int id)
         {
             await _mediator.Send(new RemoveFeatureCommand(id));
