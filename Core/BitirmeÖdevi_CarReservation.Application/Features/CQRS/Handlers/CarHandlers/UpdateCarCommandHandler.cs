@@ -18,7 +18,7 @@ namespace BitirmeÖdevi_CarReservation.Application.Features.CQRS.Handlers.CarHan
         }
         public async Task Handle(UpdateCarCommand command)
         {
-            var values = await _repository.GetByIdAsync(command.BrandId);
+            var values = await _repository.GetByIdAsync(command.CarId);
             values.Fuel = command.Fuel;
             values.Transmission = command.Transmission;
             values.BigImageUrl = command.BigImageUrl;
