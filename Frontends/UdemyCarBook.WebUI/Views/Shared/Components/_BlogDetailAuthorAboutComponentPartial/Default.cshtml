@@ -1,0 +1,67 @@
+﻿@model GetAuthorByBlogIdViewModel
+<div class="about-author">
+    <div class="bio">
+        <img src="@Model.AuthorPicture" alt="@Model.AuthorName" class="author-img">
+    </div>
+    <div class="desc">
+        <h3>@Model.AuthorName</h3>
+        <p>@Model.AuthorDescription</p>
+    </div>
+</div>
+<style>
+    /* Genel Kapsayıcı Stil Ayarları */
+    .about-author {
+        display: flex;
+        padding: 30px; /* Daha fazla iç boşluk */
+        background-color: #f8f9fa !important; /* Daha yumuşak bir arka plan */
+        border-radius: 10px; /* Yuvarlak köşeler */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Hafif gölge */
+        align-items: center; /* Dikeyde ortalama */
+        gap: 30px; /* Bio ve Açıklama arasına boşluk */
+        /* İsteğe bağlı: Sabit bir yükseklik belirleyerek alanın hep aynı kalmasını sağlayabilirsiniz. */
+        /* min-height: 200px; */
+    }
+
+        /* Yazar Fotoğrafı (Bio) Alanı */
+        .about-author .bio {
+            flex-shrink: 0; /* İçerik uzunluğundan bağımsız olarak sabit kal */
+            width: 120px; /* Sabit genişlik */
+            text-align: center;
+        }
+
+            /* Yazar Resmi */
+            .about-author .bio img {
+                width: 100%;
+                height: 140px; /* Sabit yükseklik, daire yapmak için bu önemli */
+                object-fit: cover; /* Resmin kesilmeden alana sığmasını sağlar */
+                border: 3px solid #ffffff; /* Beyaz çerçeve */
+                box-shadow: 0 0 0 2px #dee2e6; /* Hafif dış halka */
+                margin-bottom: 0 !important; /* Fazla margin'i sıfırla */
+            }
+
+        /* Yazar Açıklama (Desc) Alanı */
+        .about-author .desc {
+            flex-grow: 1; /* Kalan tüm alanı kapla */
+        }
+
+            /* Yazar Adı */
+            .about-author .desc h3 {
+                font-size: 1.5rem; /* Daha belirgin başlık */
+                font-weight: 600;
+                color: #343a40;
+                margin-bottom: 5px; /* Alt boşluğu azalt */
+            }
+
+            /* Yazar Açıklaması */
+            .about-author .desc p {
+                font-size: 1rem;
+                color: #6c757d;
+                /* İsteğe bağlı: Açıklama çok uzunsa belli bir alandan sonra kesebilirsiniz */
+                /* max-height: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* Gösterilecek satır sayısı */
+                /* -webkit-box-orient: vertical; */
+            }
+</style>

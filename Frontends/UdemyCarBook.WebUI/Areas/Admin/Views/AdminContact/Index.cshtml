@@ -1,0 +1,116 @@
+﻿@model List<ResultContactVİewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+@section Styles {
+    <link href="~/Admin/plugins/datatables/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="~/Admin/plugins/datatables/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="~/Admin/plugins/datatables/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="~/Admin/plugins/datatables/select.bootstrap4.css" rel="stylesheet" type="text/css" />
+}
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-11">
+                <div class="card shadow-lg border-custom-primary rounded-4 overflow-hidden animate__animated animate__fadeIn">
+
+                    <!-- HEADER -->
+                    <div class="card-header bg-gradient-custom text-white text-center py-4">
+                        <h3 class="fw-bold mb-0 text-white">
+                            Gelen Mesaj Sayfası
+                        </h3>
+                    </div>
+
+                    <div class="card-body p-4">
+                        <p class="text-center text-muted mb-4 fs-6">
+                            Anasayfa Üzerinden Kullanıcıların İletişim Kısmı Aracılığıyla Gönderdikleri Mesajların Listesinin Bulunduğu Sayfadır. İlgili Satıra Tıklayarak Mesajın Detayını Görebilirsiniz.
+                        </p>
+
+                        <!-- TABLE -->
+                        <div class="table-responsive">
+                            <table id="basic-datatable" class="table dt-responsive nowrap table-hover align-middle">
+                                <thead class="bg-gradient-custom text-white">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Gönderen</th>
+                                        <th>Konu</th>
+                                        <th>Email</th>
+                                        <th>Tarih</th>
+                                        <th>Mesaj</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr class="table-row-hover">
+                                            <td class="fw-bold">@count</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Subject</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.SendDate.ToShortDateString()</td>
+                                            <td>@item.Message</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- STYLES -->
+<style>
+    /* Gradient Tema */
+    .bg-gradient-custom {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        color: #fff;
+    }
+
+    .border-custom-primary {
+        border: 2px solid #667eea !important;
+    }
+
+    .table-row-hover:hover {
+        background-color: rgba(102, 126, 234, 0.1) !important;
+        transition: 0.3s;
+    }
+
+    .table-responsive {
+        overflow-x: hidden !important;
+        overflow-y: hidden !important;
+    }
+    /* Kart & Stil */
+    .card {
+        transition: all 0.3s ease;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+    }
+</style>
+
+@section Scripts {
+    <!-- third party js -->
+    <script src="~/Admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Admin/plugins/datatables/dataTables.bootstrap4.js"></script>
+    <script src="~/Admin/plugins/datatables/dataTables.responsive.min.js"></script>
+    <script src="~/Admin/plugins/datatables/responsive.bootstrap4.min.js"></script>
+    <script src="~/Admin/plugins/datatables/dataTables.buttons.min.js"></script>
+    <script src="~/Admin/plugins/datatables/buttons.bootstrap4.min.js"></script>
+    <script src="~/Admin/plugins/datatables/buttons.html5.min.js"></script>
+    <script src="~/Admin/plugins/datatables/buttons.flash.min.js"></script>
+    <script src="~/Admin/plugins/datatables/buttons.print.min.js"></script>
+    <script src="~/Admin/plugins/datatables/dataTables.keyTable.min.js"></script>
+    <script src="~/Admin/plugins/datatables/dataTables.select.min.js"></script>
+    <script src="~/Admin/plugins/datatables/pdfmake.min.js"></script>
+    <script src="~/Admin/plugins/datatables/vfs_fonts.js"></script>
+    <!-- third party js ends -->
+    <!-- Datatables init -->
+    <script src="~/Admin/vertical/assets/pages/datatables-demo.js"></script>
+    <!-- App js -->
+    <script src="~/Admin/vertical/assets/js/theme.js"></script>
+}

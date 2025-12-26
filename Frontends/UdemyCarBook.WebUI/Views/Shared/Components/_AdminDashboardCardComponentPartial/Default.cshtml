@@ -1,0 +1,217 @@
+﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .page-content {
+        background: linear-gradient(135deg, #f8f9fc 0%, #e0e7ff 100%);
+        min-height: 100vh;
+        padding: 40px 0;
+    }
+
+    .dashboard-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+        .dashboard-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dashboard-header p {
+            font-size: 1rem;
+            color: #6b7280;
+        }
+
+    .stat-card {
+        border: none;
+        border-radius: 18px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+    }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Modern degrade renk paleti */
+        .stat-card.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .stat-card.success {
+            background: linear-gradient(135deg, #06beb6 0%, #48b1bf 100%);
+        }
+
+        .stat-card.warning {
+            background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+        }
+
+        .stat-card.info {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .stat-card.secondary {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .stat-card.dark {
+            background: linear-gradient(135deg, #232526 0%, #414345 100%);
+        }
+
+        .stat-card.danger {
+            background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
+        }
+
+    .stat-card-body {
+        padding: 28px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .stat-icon {
+        position: absolute;
+        top: 18px;
+        right: 25px;
+        font-size: 3.3rem;
+        opacity: 0.18;
+        color: #fff;
+    }
+
+    .stat-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+
+    .stat-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.95);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .stat-badge {
+        background: rgba(255, 255, 255, 0.25);
+        color: #fff;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+
+    .stat-value {
+        font-size: 2.1rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center; /* dikey ortalama */
+        justify-content: flex-start;
+        gap: 8px;
+        min-height: 48px; /* 🔥 aynı yükseklik */
+    }
+
+
+
+        .stat-value .unit {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+    .progress-container {
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 10px;
+        height: 8px;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        background: rgba(255, 255, 255, 0.9);
+        height: 100%;
+        border-radius: 10px;
+        transition: width 0.5s ease;
+    }
+
+    .row {
+        margin-bottom: 25px;
+    }
+
+    .col-md-6,
+    .col-xl-3 {
+        margin-bottom: 25px;
+    }
+
+    @@media (max-width: 768px) {
+        .dashboard-header h1 {
+            font-size: 1.8rem;
+        }
+
+        .stat-value {
+            font-size: 1.6rem;
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+        }
+    }
+</style>
+
+
+<div class="col-md-6 col-xl-3">
+    <div class="stat-card primary">
+        <i class="fas fa-car stat-icon"></i>
+        <div class="stat-card-body">
+            <div class="stat-header"><h5 class="stat-title">Toplam Araç Sayısı</h5><span class="stat-badge">CarBook</span></div>
+            <div class="stat-value">@ViewBag.carCount <span class="unit">Araç</span></div>
+            <div class="progress-container"><div class="progress-bar" style="width:@ViewBag.randomProgressCarCount%;"></div></div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-xl-3">
+    <div class="stat-card danger">
+        <i class="fas fa-star stat-icon"></i>
+        <div class="stat-card-body">
+            <div class="stat-header"><h5 class="stat-title">En Çok Tercih Edilen Araç</h5><span class="stat-badge">CarBook</span></div>
+            <div class="stat-value" style="font-size:1.3rem;">@ViewBag.BrandNameByMaxCar</div>
+            <div class="progress-container"><div class="progress-bar" style="width:@ViewBag.randomProgressBrandNameByMaxCar%;"></div></div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6 col-xl-3">
+    <div class="stat-card success">
+        <i class="fas fa-map-marker-alt stat-icon"></i>
+        <div class="stat-card-body">
+            <div class="stat-header"><h5 class="stat-title">Toplam Lokasyon Sayısı</h5><span class="stat-badge">CarBook</span></div>
+            <div class="stat-value">@ViewBag.LocationCount <span class="unit">Lokasyon</span></div>
+            <div class="progress-container"><div class="progress-bar" style="width:@ViewBag.randomProgressLocationCount%;"></div></div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6 col-xl-3">
+    <div class="stat-card warning">
+        <i class="fas fa-trademark stat-icon"></i>
+        <div class="stat-card-body">
+            <div class="stat-header"><h5 class="stat-title">Toplam Marka Sayısı</h5><span class="stat-badge">CarBook</span></div>
+            <div class="stat-value">@ViewBag.BrandCount <span class="unit">Marka</span></div>
+            <div class="progress-container"><div class="progress-bar" style="width:@ViewBag.randomProgressBrandCount%;"></div></div>
+        </div>
+    </div>
+</div>
+
+

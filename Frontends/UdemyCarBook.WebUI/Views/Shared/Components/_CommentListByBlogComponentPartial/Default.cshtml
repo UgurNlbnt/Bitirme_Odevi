@@ -1,0 +1,90 @@
+@model List<ResultCommentViewModel>
+
+<div class="comments-section">
+    <h3 class="comments-count">@Model.Count() Yorum</h3>
+
+    <div class="comments-wrapper">
+        @foreach (var item in Model)
+        {
+            <div class="comment-card">
+                <img src="@item.UserImageurl" alt="@item.Name" class="user-avatar">
+                <div class="comment-content">
+                    <div class="comment-header">
+                        <h4 class="user-name">@item.Name</h4>
+                        <span class="comment-date">@item.CreatedDate.ToShortDateString()</span>
+                    </div>
+                    <p class="comment-text">@item.Description</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .comments-section {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .comments-count {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    .comments-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .comment-card {
+        display: flex;
+        gap: 15px;
+        padding: 20px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .user-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+    .comment-content {
+        flex: 1;
+    }
+
+    .comment-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .user-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: #222;
+        margin: 0;
+    }
+
+    .comment-date {
+        font-size: 13px;
+        color: #888;
+    }
+
+    .comment-text {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+
+ 
+</style>

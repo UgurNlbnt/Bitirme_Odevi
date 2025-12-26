@@ -1,0 +1,99 @@
+@model List<ResultCategoryViewModel>
+
+<div class="sidebar-widget-container category-widget-container">
+
+    <div class="widget-content-box category-list-box">
+        <h3 class="widget-title">Kategoriler</h3>
+        <ul class="categories-list">
+            @{
+                var categoryCounts = ViewBag.CategoryBlogCounts as Dictionary<int, int> ?? new Dictionary<int, int>();
+            }
+            @foreach (var item in Model)
+            {
+                <li class="category-item">
+                    <a href="/Blog/Index?categoryId=@item.CategoryId" class="category-link">
+                        @item.Name
+                        <span class="category-count">(@(categoryCounts.ContainsKey(item.CategoryId) ? categoryCounts[item.CategoryId] : 0))</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+<style>
+    /* * NOT: Bu stiller, önceki "Son Bloglar" widget'ınızın stilleriyle birleştirilmelidir.
+     * Aşağıdaki CSS, iki kart görünümünü sağlayan temel sınıfları içerir.
+     */
+
+    /* --- Ana Konteyner --- */
+    .sidebar-widget-container {
+        margin-bottom: 30px;
+    }
+
+    /* --- 1. Kutu: Başlık Kısmı --- */
+    .widget-header-box {
+        padding: 15px 25px;
+        /* Son Bloglar başlığı ile aynı stil */
+        background-color: #f8f9fa; /* Hafif gri arka plan */
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom: 1px solid #e9ecef; /* Altına ince bir çizgi */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Yumuşak üst gölge */
+    }
+
+    .widget-title {
+        /* Font stilleri Son Bloglar ile uyumlu olmalıdır. */
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #34495e;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* --- 2. Kutu: İçerik Kısmı --- */
+    .widget-content-box {
+        padding: 15px 25px 15px 25px;
+        background-color: #ffffff; /* Beyaz arka plan */
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        /* Son Bloglar içerik kutusu ile aynı stil */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Kategori Listesinin Estetik Düzenlemesi */
+    .categories-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .category-item {
+        border-bottom: 1px dashed #f0f0f0; /* Kategoriler arasına ince, kesikli çizgi */
+        padding: 10px 0; /* Boşluğu biraz artırdık */
+    }
+
+        .category-item:last-child {
+            border-bottom: none;
+        }
+
+    .category-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        font-size: 1rem;
+        color: #555;
+        transition: color 0.2s ease-in-out;
+    }
+
+        .category-link:hover {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+    .category-count {
+        font-size: 0.9rem;
+        color: #95a5a6;
+        font-weight: 400;
+    }
+</style>

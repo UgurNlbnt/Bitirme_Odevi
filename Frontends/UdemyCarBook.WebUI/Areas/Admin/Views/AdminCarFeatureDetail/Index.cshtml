@@ -1,0 +1,529 @@
+﻿@model List<ResultCarFeatureDetailViewModel>
+@{
+    ViewData["Title"] = "Araç Detayları";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    var carInfo = Model.FirstOrDefault();
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                
+                <!-- Geri Dön Butonu -->
+                <div class="mb-3">
+                    <a href="/AdminCar/Index" class="btn btn-outline-secondary btn-sm">
+                        <i class="mdi mdi-arrow-left me-1"></i> Araç Listesine Dön
+                    </a>
+                </div>
+
+                <!-- Ana Kart -->
+                <div class="card shadow-lg border-0 rounded-4 overflow-hidden animate__animated animate__fadeIn">
+                    
+                    <!-- Header -->
+                    <div class="card-header bg-gradient-custom text-white py-4 border-0">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="mb-1 fw-bold text-white text-center">
+                                   Araca Ait Özellikler
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="card-body p-4 p-md-5">
+                        
+                        <!-- Araç Bilgileri ve Özellik Özeti -->
+                        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+                            <h5 class="text-gradient-custom fw-bold mb-0">
+                                Araç:   @carInfo.CarName - @carInfo.CarModel
+                            </h5>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge badge-success-soft">
+                                    <i class="mdi mdi-check-circle me-1"></i>
+                                    @Model.Count(x => x.Avaiable) Var
+                                </span>
+                                <span class="badge badge-danger-soft">
+                                    <i class="mdi mdi-close-circle me-1"></i>
+                                    @Model.Count(x => !x.Avaiable) Yok
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Özellikler Grid -->
+                        <!-- Özellikler Grid -->
+                        <form method="post">
+                            <div class="features-grid mb-4">
+                                @for (int i = 0; i < Model.Count; i++)
+                                {
+
+                                    <input type="hidden" name="Features[@i].CarFeatureId" value="@Model[i].CarFeatureId" />
+                                    <input type="hidden" name="Features[@i].FeatureID" value="@Model[i].FeatureID" />
+                                    <input type="hidden" name="Features[@i].FeatureName" value="@Model[i].FeatureName" />
+                                    <input type="hidden" name="Features[@i].CarName" value="@Model[i].CarName" />
+                                    <input type="hidden" name="Features[@i].CarID" value="@Model[i].CarID" />
+                                    <input type="hidden" name="Features[@i].CarModel" value="@Model[i].CarModel" />
+                                    
+
+                                    <div class="feature-item @(Model[i].Avaiable ? "feature-available" : "feature-unavailable")">
+                                        <div class="feature-icon">
+                                            <i class="mdi @(Model[i].Avaiable ? "mdi-check-circle-outline" : "mdi-close-circle-outline")"></i>
+                                        </div>
+                                        <div class="feature-content">
+                                            <h6 class="feature-name mb-1">@Model[i].FeatureName</h6>
+                                            <span class="feature-status">@(Model[i].Avaiable ? "Mevcut" : "Mevcut Değil")</span>
+                                        </div>
+                                       @*  //Kullanıcı bu kutucuğu işaretlerse, form gönderildiğinde "true" değeri gider.
+                                        Ama işaretlenmezse hiçbir şey gönderilmez (boş kalır).
+                                        Yani value="true" demek “bu kutu seçilirse gönderilecek değer true olsun” anlamına gelir.
+                                        Bu checkbox’ı sayfa açıldığında otomatik olarak işaretli yapmaz. *@
+                                        <div class="feature-checkbox-wrapper">
+                                            <div class="form-check">
+                                                <input class="form-check-input feature-grid-checkbox"
+                                                       type="checkbox"
+                                                       name="Features[@i].Avaiable"
+                                                       value="true"
+                                                @(Model[i].Avaiable ? "checked" : "")
+                                                       id="grid_feature_@i"
+                                                       aria-label="@Model[i].FeatureName durumu">
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                            <!-- Kaydet Butonu -->
+                            <div class="text-center mb-5">
+                                <button type="submit" class="btn btn-gradient-custom btn-lg px-5">
+                                    Değişiklikleri Kaydet
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    /* Gradient Background */
+    .bg-gradient-custom {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    /* Buttons */
+    .btn-gradient-custom {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+    }
+
+    .btn-gradient-custom:hover {
+        background: linear-gradient(135deg, #5568d3 0%, #653a89 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+        color: white;
+    }
+
+    .btn-outline-custom {
+        border: 2px solid #667eea;
+        color: #667eea;
+        font-weight: 600;
+        background: transparent;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-custom:hover {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-color: transparent;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+    }
+
+    .text-gradient-custom {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Badges */
+    .badge-success-soft {
+        background: rgba(40, 167, 69, 0.1);
+        color: #28a745;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 50rem;
+        font-size: 0.875rem;
+    }
+
+    .badge-danger-soft {
+        background: rgba(220, 53, 69, 0.1);
+        color: #dc3545;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 50rem;
+        font-size: 0.875rem;
+    }
+
+    /* Features Grid */
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+        transition: all 0.3s ease;
+        border: 2px solid;
+    }
+
+    .feature-available {
+        background: linear-gradient(135deg, rgba(40, 167, 69, 0.05) 0%, rgba(40, 167, 69, 0.02) 100%);
+        border-color: rgba(40, 167, 69, 0.2);
+    }
+
+    .feature-available:hover {
+        background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(40, 167, 69, 0.05) 100%);
+        border-color: rgba(40, 167, 69, 0.4);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(40, 167, 69, 0.15);
+    }
+
+    .feature-unavailable {
+        background: linear-gradient(135deg, rgba(220, 53, 69, 0.05) 0%, rgba(220, 53, 69, 0.02) 100%);
+        border-color: rgba(220, 53, 69, 0.2);
+    }
+
+    .feature-unavailable:hover {
+        background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(220, 53, 69, 0.05) 100%);
+        border-color: rgba(220, 53, 69, 0.4);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(220, 53, 69, 0.15);
+    }
+
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.5rem;
+        font-size: 24px;
+        flex-shrink: 0;
+    }
+
+    .feature-available .feature-icon {
+        background: rgba(40, 167, 69, 0.15);
+        color: #28a745;
+    }
+
+    .feature-unavailable .feature-icon {
+        background: rgba(220, 53, 69, 0.15);
+        color: #dc3545;
+    }
+
+    .feature-content {
+        flex: 1;
+    }
+
+    .feature-name {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #2c3e50;
+    }
+
+    .feature-status {
+        font-size: 0.8rem;
+        font-weight: 500;
+        opacity: 0.7;
+        color: #6c757d;
+    }
+
+    /* Modal Styles */
+    .feature-edit-item {
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        background: #f8f9fa;
+        border-radius: 0.5rem;
+        transition: all 0.2s ease;
+    }
+
+    .feature-edit-item:hover {
+        background: #e9ecef;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-edit-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .feature-label {
+        font-weight: 600;
+        color: #2c3e50;
+        margin: 0;
+        font-size: 0.95rem;
+    }
+
+    .form-switch-lg .form-check-input {
+        width: 3rem;
+        height: 1.5rem;
+        cursor: pointer;
+    }
+
+    .form-check-input:checked {
+        background-color: #667eea;
+        border-color: #667eea;
+    }
+
+    .form-check-input:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+    }
+
+    .switch-label {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #495057;
+    }
+
+    .modal-content {
+        border-radius: 1rem;
+    }
+
+    .modal-header .btn-close-white {
+        filter: brightness(0) invert(1);
+    }
+
+    /* Card Effects */
+    .card {
+        transition: all 0.3s ease;
+    }
+
+    /* Form Controls */
+    .form-select:focus,
+    .form-control:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+    }
+
+    /* Responsive Design */
+    @@media (max-width: 768px) {
+        .features-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .d-flex.gap-3 {
+            flex-direction: column;
+        }
+        
+        .d-flex.gap-3 .btn {
+            width: 100%;
+        }
+
+        .card-body {
+            padding: 1.5rem !important;
+        }
+
+        .feature-item {
+            padding: 1rem;
+        }
+
+        .btn-lg {
+            font-size: 0.9rem;
+            padding: 0.5rem 1.5rem;
+        }
+    }
+
+    @@media (max-width: 576px) {
+        .badge-success-soft,
+        .badge-danger-soft {
+            font-size: 0.75rem;
+            padding: 0.4rem 0.8rem;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+        }
+    }
+    /* Feature Grid Checkbox Styles */
+    /* Features Grid */
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+        transition: all 0.3s ease;
+        border: 2px solid;
+        position: relative;
+    }
+
+    .feature-available {
+        background: linear-gradient(135deg, rgba(40, 167, 69, 0.05) 0%, rgba(40, 167, 69, 0.02) 100%);
+        border-color: #28a745 !important;
+    }
+
+        .feature-available:hover {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(40, 167, 69, 0.05) 100%);
+            border-color: #28a745 !important;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(40, 167, 69, 0.15);
+        }
+
+    .feature-unavailable {
+        background: linear-gradient(135deg, rgba(220, 53, 69, 0.05) 0%, rgba(220, 53, 69, 0.02) 100%);
+        border-color: #dc3545 !important;
+    }
+
+        .feature-unavailable:hover {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(220, 53, 69, 0.05) 100%);
+            border-color: #dc3545 !important;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(220, 53, 69, 0.15);
+        }
+
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.5rem;
+        font-size: 24px;
+        flex-shrink: 0;
+    }
+
+    .feature-available .feature-icon {
+        background: rgba(40, 167, 69, 0.15);
+        color: #28a745;
+    }
+
+    .feature-unavailable .feature-icon {
+        background: rgba(220, 53, 69, 0.15);
+        color: #dc3545;
+    }
+
+    .feature-content {
+        flex: 1;
+    }
+
+    .feature-name {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #2c3e50;
+    }
+
+    .feature-status {
+        font-size: 0.8rem;
+        font-weight: 500;
+        opacity: 0.7;
+        color: #6c757d;
+    }
+
+    /* Feature Grid Checkbox Styles */
+    .feature-checkbox-wrapper {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    .form-check-input.feature-grid-checkbox {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+        border: 2px solid #ced4da;
+        transition: all 0.3s ease;
+    }
+
+        .form-check-input.feature-grid-checkbox:checked {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .form-check-input.feature-grid-checkbox:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+        }
+
+    .feature-unavailable .form-check-input.feature-grid-checkbox {
+        border-color: #dc3545;
+    }
+
+        .feature-unavailable .form-check-input.feature-grid-checkbox:checked {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+</style>
+
+<script>
+    // Switch etiketini dinamik olarak güncelle
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.feature-switch').forEach(function(checkbox) {
+            // İlk yüklemede etiket rengini ayarla
+            updateSwitchLabel(checkbox);
+            
+            // Değişiklik olduğunda güncelle
+            checkbox.addEventListener('change', function() {
+                updateSwitchLabel(this);
+            });
+        });
+    });
+
+    function updateSwitchLabel(checkbox) {
+        const label = checkbox.nextElementSibling;
+        if (checkbox.checked) {
+            label.textContent = 'Var';
+            label.classList.remove('text-danger');
+            label.classList.add('text-success');
+        } else {
+            label.textContent = 'Yok';
+            label.classList.remove('text-success');
+            label.classList.add('text-danger');
+        }
+    }
+
+    // Form validasyonu
+    document.querySelectorAll('form').forEach(function(form) {
+        form.addEventListener('submit', function(e) {
+            if (!form.checkValidity()) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        });
+    });
+</script>
+@* 
+Checkbox işaretliyse (checked): Form gönderildiğinde, tarayıcı checkbox'ın name'i ve value'su ile birlikte veriyi gönderir: Features[@i].Avaiable=true. ASP.NET Core Model Bağlayıcı bunu true olarak algılar.
+Checkbox işaretli değilse (unchecked): Tarayıcı, işaretli olmayan bir onay kutusunu form verisine dahil etmez. Model Bağlayıcı bu alan için herhangi bir değer görmediği için, C# bool tipinin varsayılan değeri olan false değerini otomatik olarak atar. *@
+@* yani burda eğer avaible true ise otomatik check olur check olmasıda valuenun true olmasına neden olur ama bişey işaretlenmezse default olarak bool değeri false atanır *@
+
+
+@* 🎯 @Model[i].CarFeatureId ne demek?
+Model → View’a gönderdiğin veri listesi (örneğin List<ResultCarFeatureDetailViewModel>)
+[i] → o listenin i’inci (yani sıradaki) elemanı
+.CarFeatureId → o elemanın CarFeatureId isimli özelliği (property’si) *@

@@ -1,0 +1,498 @@
+﻿@model UpdateCarViewModel
+
+@{
+    ViewData["Title"] = "UpdateCar";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+<div class="page-wrapper">
+    <div class="container-fluid py-5">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-11">
+                <!-- Header Card -->
+                <div class="page-header mb-4 animate-slide-down">
+                    <div class="d-flex align-items-center">
+                        <div class="header-icon" style="margin-right:10px">
+                            <i class="mdi mdi-pencil-box"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h3 class="mb-1 fw-bold text-gradient">Araç Bilgilerini Güncelle</h3>
+                            <p class="text-muted mb-0 small">
+                                <i class="mdi mdi-information-outline me-1"></i>
+                                Değiştirmek istediğiniz alanları düzenleyip kaydedin
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Form Card -->
+                <div class="card modern-card animate-fade-in">
+                    <div class="card-body p-4 p-lg-5">
+                        <form method="post" class="needs-validation" novalidate>
+                            @Html.HiddenFor(x => x.CarId)
+                            
+                            <div class="row g-4">
+                                <!-- Sol Kolon -->
+                                <div class="col-lg-6">
+                                    <div class="section-title mb-3">
+                                        <span class="badge bg-primary-soft text-primary mb-2">
+                                            <i class="mdi mdi-car-info me-1"></i>Araç Bilgileri
+                                        </span>
+                                    </div>
+
+                                    <!-- Marka -->
+                                    <div class="modern-input-group mb-4">
+                                        <div class="input-icon">
+                                            <i class="mdi mdi-car"></i>
+                                        </div>
+                                        <div class="input-wrapper">
+                                            @Html.DropDownListFor(x => x.BrandId,
+                                                     (List<SelectListItem>)ViewBag.brandValues,
+                                                     "-- Marka Seçiniz --",
+                                                     new { @class = "form-control modern-select", required = "required" })
+                                            <label class="floating-label">Araç Marka/Model</label>
+                                            <div class="invalid-feedback">Marka seçimi zorunludur</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Kilometre -->
+                                    <div class="modern-input-group mb-4">
+                                        <div class="input-icon">
+                                            <i class="mdi mdi-speedometer"></i>
+                                        </div>
+                                        <div class="input-wrapper">
+                                            <input type="number" class="form-control" asp-for="Km" required>
+                                            <label class="floating-label">Kilometre</label>
+                                            <div class="invalid-feedback">KM bilgisi gereklidir</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Vites -->
+                                    <div class="modern-input-group mb-4">
+                                        <div class="input-icon">
+                                            <i class="mdi mdi-alpha-t-circle-outline"></i>
+                                        </div>
+                                        <div class="input-wrapper">
+                                            <select class="form-control modern-select" asp-for="Transmission" required>
+                                                <option value="">-- Seçiniz --</option>
+                                                <option value="Manuel">Manuel</option>
+                                                <option value="Otomatik">Otomatik</option>
+                                                <option value="Yarı Otomatik">Yarı Otomatik</option>
+                                            </select>
+                                            <label class="floating-label">Vites Tipi</label>
+                                            <div class="invalid-feedback">Vites tipi seçimi zorunludur</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sağ Kolon -->
+                                <div class="col-lg-6">
+                                    <div class="section-title mb-3">
+                                        <span class="badge text-white mb-2">
+                                            <i class="mdi mdi-cog-outline me-1"></i>
+                                        </span>
+                                    </div>
+
+                                    <!-- Koltuk -->
+                                    <div class="modern-input-group mb-4">
+                                        <div class="input-icon">
+                                            <i class="mdi mdi-seat-recline-normal"></i>
+                                        </div>
+                                        <div class="input-wrapper">
+                                            <input type="number" class="form-control" asp-for="Seat" min="2" max="9" required>
+                                            <label class="floating-label">Koltuk Sayısı</label>
+                                            <div class="invalid-feedback">Koltuk sayısı 2-9 arasında olmalıdır</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Bagaj -->
+                                    <div class="modern-input-group mb-4">
+                                        <div class="input-icon">
+                                            <i class="mdi mdi-car-limousine"></i>
+                                        </div>
+                                        <div class="input-wrapper">
+                                            <input type="number" class="form-control" asp-for="Luggage" min="0" required>
+                                            <label class="floating-label">Bagaj Kapasitesi (L)</label>
+                                            <div class="invalid-feedback">Bagaj kapasitesi gereklidir</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Yakıt -->
+                                    <div class="modern-input-group mb-4">
+                                        <div class="input-icon">
+                                            <i class="mdi mdi-gas-station"></i>
+                                        </div>
+                                        <div class="input-wrapper">
+                                            <select class="form-control modern-select" asp-for="Fuel" required>
+                                                <option value="">-- Seçiniz --</option>
+                                                <option value="Benzin">Benzin</option>
+                                                <option value="Dizel">Dizel</option>
+                                                <option value="Elektrik">Elektrik</option>
+                                                <option value="Hibrit">Hibrit</option>
+                                                <option value="LPG">LPG</option>
+                                            </select>
+                                            <label class="floating-label">Yakıt Türü</label>
+                                            <div class="invalid-feedback">Yakıt türü seçimi zorunludur</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Görsel (Tam Genişlik) -->
+                                <div class="col-12">
+                                    <div class="section-title mb-3">
+                                        <span class="badge bg-info-soft text-info mb-2">
+                                            <i class="mdi mdi-image-outline me-1"></i>Görsel
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="modern-input-group">
+                                        <div class="input-icon">
+                                            <i class="mdi mdi-link-variant"></i>
+                                        </div>
+                                        <div class="input-wrapper">
+                                            <input type="url" class="form-control" asp-for="BigImageUrl" required>
+                                            <label class="floating-label">Araç Görseli URL</label>
+                                            <small class="form-hint">
+                                                <i class="mdi mdi-lightbulb-on-outline me-1"></i>
+                                                Yüksek çözünürlüklü görsel URL'si girin
+                                            </small>
+                                            <div class="invalid-feedback">Geçerli bir URL adresi giriniz</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="form-actions mt-5">
+                                <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="window.history.back()">
+                                    <i class="mdi mdi-arrow-left me-2"></i>
+                                    İptal
+                                </button>
+                                <button type="submit" class="btn btn-gradient-primary btn-lg px-5 ms-3">
+                                    <i class="mdi mdi-check-circle me-2"></i>
+                                    Güncelle
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SweetAlert2 -->
+<!-- SweetAlert2 CDN -->
+<!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    // Form validation
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+
+    // TempData mesajlarını göster
+    @if (TempData["Success"] != null)
+    {
+        <text>
+                    Swal.fire({
+                        icon: 'success',
+                    title: 'Güncelleme Başarılı!',
+                    html: '<p class="mb-2">Araç bilgileri başarıyla güncellendi.</p><small class="text-muted">Araç listesine yönlendiriliyorsunuz...</small>',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    backdrop: true,
+                    allowOutsideClick: false,
+                    customClass: {
+                        popup: 'animated fadeInDown',
+                    title: 'text-success',
+                            htmlContainer: 'text-muted'
+                        },
+                    didOpen: () => {
+                            Swal.showLoading();
+                        },
+                    willClose: () => {
+                            window.location.href = '@Url.Action("Index", "AdminCar")';
+                        }
+                });
+        </text>
+    }
+
+    @if (TempData["False"] != null)
+    {
+        <text>
+                    Swal.fire({
+                        icon: 'error',
+                    title: 'Güncelleme Başarısız!',
+                    html: '<p class="mb-2">Araç bilgileri güncellenirken bir hata oluştu.</p><small class="text-muted">Lütfen bilgileri kontrol edip tekrar deneyiniz.</small>',
+                    confirmButtonText: '<i class="mdi mdi-refresh me-1"></i> Tekrar Dene',
+                    confirmButtonColor: '#f46a6a',
+                    showCancelButton: true,
+                    cancelButtonText: 'Kapat',
+                    cancelButtonColor: '#74788d',
+                    customClass: {
+                        popup: 'animated shake',
+                            title: 'text-danger',
+                            confirmButton: 'btn btn-danger waves-effect waves-light',
+                            cancelButton: 'btn btn-secondary waves-effect'
+                    },
+                        buttonsStyling: false
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload();
+                        }
+                    });
+        </text>
+    }
+</script>
+
+
+
+<style>
+    :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        --info-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .page-wrapper {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+
+    /* Header Styling */
+    .page-header {
+        background: white;
+        padding: 1.5rem 2rem;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .header-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--primary-gradient);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        color: white;
+    }
+
+    .text-gradient {
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Modern Card */
+    .modern-card {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        background: white;
+        overflow: hidden;
+    }
+
+    /* Badge Soft Colors */
+    .bg-primary-soft {
+        background-color: rgba(102, 126, 234, 0.1);
+    }
+
+    .bg-success-soft {
+        background-color: rgba(17, 153, 142, 0.1);
+    }
+
+    .bg-info-soft {
+        background-color: rgba(79, 172, 254, 0.1);
+    }
+
+    /* Modern Input Group */
+    .modern-input-group {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .input-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        margin-right: 15px;
+        margin-top: 8px;
+        flex-shrink: 0;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .input-wrapper {
+        flex: 1;
+        position: relative;
+    }
+
+    .input-wrapper .form-control,
+    .input-wrapper .modern-select {
+        height: 55px;
+        border: 2px solid #e8ecf1;
+        border-radius: 12px;
+        padding: 1.5rem 1rem 0.5rem 1rem;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        background: #f8f9fa;
+    }
+
+    .input-wrapper .form-control:focus,
+    .input-wrapper .modern-select:focus {
+        border-color: #667eea;
+        background: white;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.15);
+        outline: none;
+    }
+
+    .floating-label {
+        position: absolute;
+        top: 8px;
+        left: 1rem;
+        font-size: 11px;
+        font-weight: 600;
+        color: #667eea;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+    .form-hint {
+        display: block;
+        margin-top: 0.5rem;
+        color: #6c757d;
+        font-size: 13px;
+    }
+
+    /* Gradient Button */
+    .btn-gradient-primary {
+        background: var(--primary-gradient);
+        border: none;
+        color: white;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        transition: all 0.3s ease;
+    }
+
+    .btn-gradient-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        color: white;
+    }
+
+    .btn-outline-secondary {
+        border: 2px solid #e8ecf1;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-secondary:hover {
+        background: #f8f9fa;
+        border-color: #d1d5db;
+    }
+
+    /* Form Actions */
+    .form-actions {
+        padding-top: 2rem;
+        border-top: 2px solid #f1f3f5;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    /* Animations */
+    @@keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .animate-slide-down {
+        animation: slideDown 0.5s ease-out;
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-out 0.2s both;
+    }
+
+    /* SweetAlert Custom */
+    .swal-modern {
+        border-radius: 20px;
+    }
+
+    /* Responsive */
+    @@media (max-width: 768px) {
+        .page-wrapper {
+            padding: 1rem 0;
+        }
+
+        .modern-card .card-body {
+            padding: 2rem 1.5rem !important;
+        }
+
+        .form-actions {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-actions .btn {
+            width: 100%;
+        }
+
+        .page-header {
+            padding: 1rem;
+        }
+
+        .header-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+        }
+    }
+</style>

@@ -1,0 +1,66 @@
+﻿@model List<GetLast3BlogWithCategoryandAuthorViewModel>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">Bloglar</span>
+                <h2>Son Bloglar</h2>
+            </div>
+        </div>
+        <div class="row d-flex">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 d-flex ftco-animate">
+                    <div class="blog-entry justify-content-end blog-card-fixed-height">
+                        <a href="blog-single.html" class="block-20" style="background-image: url('@item.CoverImageUrl');">
+                        </a>
+                        <div class="text pt-4 blog-text-content">
+                            <div class="meta mb-3">
+                                <div><a href="#">@item.CreatedDate.ToShortDateString()</a></div>
+                                <div><a href="#">@item.AuthorName</a></div>
+                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
+                            </div>
+                            <h3 class="heading mt-2 blog-title"><a href="#">@item.Title</a></h3>
+                            <p class="read-more-wrapper"><a href="/Blog/BlogDetail/@item.BlogId" class="btn btn-primary">Devamın Oku</a></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    /* 1. Ensure the card itself is a flex container and grows to fill the column height */
+    .blog-card-fixed-height {
+        /* Use 'd-flex' class from Bootstrap if available, otherwise use: */
+        display: flex;
+        flex-direction: column; /* Stacks image and text vertically */
+        height: 100%; /* Important: makes the card fill the height of its parent column */
+    }
+
+    /* 2. Make the text content a flex container */
+    .blog-text-content {
+        display: flex;
+        flex-direction: column;
+        /* Allows the text area to expand to fill the remaining space below the image */
+        flex-grow: 1;
+    }
+
+    /* 3. Allow the title to use as much space as it needs */
+    .blog-title {
+        flex-grow: 1; /* Allows the title to push the button down */
+        /* Add a max-height/overflow ellipsis if you want to strictly limit the text */
+        /*
+        max-height: 4.5em;
+        overflow: hidden;
+        */
+    }
+
+    /* 4. Ensure the button wrapper is always at the bottom */
+    .read-more-wrapper {
+        margin-top: auto; /* Pushes the element to the bottom of the flex container */
+        padding-top: 10px; /* Optional: Adds some space above the button */
+    }
+</style>

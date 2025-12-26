@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+    @await Html.PartialAsync("AdminHeaderPartial.cshtml")
+    @RenderSection("Styles", required: false)
+<body>
+    <div id="layout-wrapper">
+        @await Component.InvokeAsync("_AdminNavbarViewComponentPartial")
+        @await Html.PartialAsync("AdminSideBarPartial.cshtml")
+        <div class="main-content">
+            @RenderBody()
+            @await Html.PartialAsync("AdminFooterPartial.cshtml")
+        </div>
+    </div>
+    @await Html.PartialAsync("AdminScriptPartial.cshtml")
+    @RenderSection("Scripts", required: false)
+    @RenderSection("DashboardScripts", required: false)
+</body>
+</html>

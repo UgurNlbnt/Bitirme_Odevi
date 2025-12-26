@@ -1,0 +1,145 @@
+﻿@model List<ResuıltCarPricingWithTimePeriodAndBrandViewModel>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/UILayout/Index.cshtml";
+}
+<section class="ftco-section ftco-cart">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 ftco-animate">
+				<div class="car-list">
+					<table class="table">
+						<thead class="thead-primary">
+							<tr class="text-center">
+								<th style="width: 150px;">Araç Görseli</th>
+								<th style="width: 200px;">Araç Bilgisi</th>
+								<th class="bg-primary heading" style="width: 150px;">Saatlik</th>
+								<th class="bg-success heading" style="width: 150px;">Günlük</th>
+								<th class="bg-warning heading" style="width: 150px;">Haftalık</th>
+								<th class="bg-danger heading" style="width: 150px;">Aylık</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var item in Model)
+							{
+								<tr class="text-center align-middle">
+									<td class="car-image">
+										<div class="img" style="background-image:url(@item.coverImageUrl); height: 120px; background-size: cover; background-position: center; border-radius: 8px;"></div>
+									</td>
+									<td class="product-name text-left">
+										<h3 style="font-size: 1.2rem; margin-bottom: 10px;">@item.brandName @item.brandModel</h3>
+										<p class="mb-0 rated">
+											<span class="ion-ios-star"></span>
+											<span class="ion-ios-star"></span>
+											<span class="ion-ios-star"></span>
+											<span class="ion-ios-star"></span>
+											<span class="ion-ios-star"></span>
+										</p>
+									</td>
+									<td class="price">
+										<div class="price-rate mb-3">
+											<h3 style="font-size: 1.5rem; font-weight: bold; color: #007bff;">
+												@item.hourlyAmount ₺
+											</h3>
+											<span class="per" style="font-size: 0.9rem; color: #666;">/Saatlik</span>
+										</div>
+										<p class="btn-custom mb-0"><a href="#" class="btn btn-primary btn-sm">Kirala</a></p>
+									</td>
+									<td class="price">
+										<div class="price-rate mb-3">
+											<h3 style="font-size: 1.5rem; font-weight: bold; color: #28a745;">
+												@item.dailyAmount ₺
+											</h3>
+											<span class="per" style="font-size: 0.9rem; color: #666;">/Günlük</span>
+										</div>
+										<p class="btn-custom mb-0"><a href="#" class="btn btn-success btn-sm">Kirala</a></p>
+									</td>
+									<td class="price">
+										<div class="price-rate mb-3">
+											<h3 style="font-size: 1.5rem; font-weight: bold; color: #ffc107;">
+												@item.weeklyAmount ₺
+											</h3>
+											<span class="per" style="font-size: 0.9rem; color: #666;">/Haftalık</span>
+										</div>
+										<p class="btn-custom mb-0"><a href="#" class="btn btn-warning btn-sm">Kirala</a></p>
+									</td>
+									<td class="price">
+										<div class="price-rate mb-3">
+											<h3 style="font-size: 1.5rem; font-weight: bold; color: #dc3545;">
+												@item.monthlyAmount ₺
+											</h3>
+											<span class="per" style="font-size: 0.9rem; color: #666;">/Aylık</span>
+										</div>
+										<p class="btn-custom mb-0"><a href="#" class="btn btn-danger btn-sm">Kirala</a></p>
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.table td {
+		vertical-align: middle !important;
+		padding: 20px 10px;
+	}
+
+	.table th {
+		vertical-align: middle !important;
+		padding: 15px 10px;
+		font-weight: 600;
+		position: relative;
+	}
+
+	/* Dalgalı okları her başlık için ayrı renklendirme */
+	.table thead th:nth-child(3)::after,
+	.table thead th:nth-child(3)::before {
+		border-top-color: #007bff !important; /* Mavi - Saatlik */
+	}
+
+	.table thead th:nth-child(4)::after,
+	.table thead th:nth-child(4)::before {
+		border-top-color: #28a745 !important; /* Yeşil - Günlük */
+	}
+
+	.table thead th:nth-child(5)::after,
+	.table thead th:nth-child(5)::before {
+		border-top-color: #ffc107 !important; /* Sarı - Haftalık */
+	}
+
+	.table thead th:nth-child(6)::after,
+	.table thead th:nth-child(6)::before {
+		border-top-color: #dc3545 !important; /* Kırmızı - Aylık */
+	}
+
+	/* Arka plan renkleri - açık tonlar */
+	.bg-primary-light {
+		background-color: rgba(0, 123, 255, 0.1) !important;
+	}
+
+	.bg-success-light {
+		background-color: rgba(40, 167, 69, 0.1) !important;
+	}
+
+	.bg-warning-light {
+		background-color: rgba(255, 193, 7, 0.1) !important;
+	}
+
+	.bg-danger-light {
+		background-color: rgba(220, 53, 69, 0.1) !important;
+	}
+
+	.price-rate h3 {
+		margin-bottom: 5px;
+	}
+
+	.btn-sm {
+		padding: 8px 20px;
+		font-size: 0.9rem;
+		border-radius: 5px;
+	}
+</style>

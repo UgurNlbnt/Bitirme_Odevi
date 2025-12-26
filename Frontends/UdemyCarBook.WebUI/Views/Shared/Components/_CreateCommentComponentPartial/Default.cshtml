@@ -1,0 +1,82 @@
+﻿@model CreateCommentViewModel
+<div class="comment-form-wrap pt-5" id="commentSection">
+    <h3 class="mb-5">Yorum Bırak</h3>
+    <form id="commentForm" class="p-5 bg-light">
+        <input type="hidden" value="@ViewBag.BlogId" name="BlogId" />
+        <div class="form-group mb-3">
+            <label for="name">Adınız / Soyadınız</label>
+            <input type="text" class="form-control" id="name" asp-for="Name" required >
+        </div>
+        <div class="form-group mb-3">
+            <label for="name">Email</label>
+            <input type="text" class="form-control" id="name" required asp-for="Email">
+        </div>
+        <div class="form-group mb-3">
+            <label for="photo">Fotoğraf URL</label>
+            <input type="text" class="form-control" id="photo" asp-for="UserImageurl" >
+        </div>
+        <div class="form-group mb-4">
+            <label for="message">Yorumunuz</label>
+            <textarea  id="message" cols="30" rows="6" class="form-control" required asp-for="Description"></textarea>
+        </div>
+        <div class="form-group text-end">
+            <button type="submit" class="btn py-3 px-4 btn-primary">Yorum Gönder</button>
+        </div>
+    </form>
+</div>
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("commentForm");
+        
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch('@Url.Action("CreateComment", "Blog")', {
+                    method: "POST",
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    Swal.fire({
+                        title: 'Teşekkürler!',
+                        text: 'Yorumunuz başarıyla gönderildi',
+                        icon: 'success',
+                        confirmButtonText: 'Tamam',
+                        customClass: {
+                            popup: 'animate__animated animate__fadeInUp'
+                        }
+                    });
+                    
+                    // Formu temizle
+                    form.reset();
+                    
+                    // Yorum bölümüne yumuşak kaydır
+                    document.getElementById("commentSection").scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Bir Hata Oluştu',
+                        text: 'Yorum gönderilemedi. Lütfen tekrar deneyin.',
+                        icon: 'error',
+                        confirmButtonText: 'Kapat'
+                    });
+                }
+            } catch (error) {
+                Swal.fire({
+                    title: 'Sunucu Hatası',
+                    text: 'Bağlantı sırasında bir hata oluştu.',
+                    icon: 'error',
+                    confirmButtonText: 'Tamam'
+                });
+            }
+        });
+    });
+</script>

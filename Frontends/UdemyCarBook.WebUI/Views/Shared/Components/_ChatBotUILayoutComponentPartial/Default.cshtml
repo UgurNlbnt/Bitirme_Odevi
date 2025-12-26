@@ -1,0 +1,579 @@
+﻿<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<!-- Chat Widget Button -->
+<div id="chatWidget">
+    <!-- Chat Butonu -->
+    <button id="chatButton" class="chat-button">
+        <span class="badge" id="unreadCount" style="display: none;">3</span>
+        Destek
+        <i class="bi bi-robot"></i>
+    </button>
+
+    <!-- Chat Penceresi -->
+    <div id="chatWindow" class="chat-window" style="display: none;">
+        <!-- Header -->
+        <div class="chat-header">
+            <div class="d-flex align-items-center">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 24px;">
+                    <a href="#">
+                        <img src="https://www.shutterstock.com/image-vector/cute-robot-waving-hand-cartoon-600nw-2268493229.jpg"
+                             style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                    </a>
+                </div>
+                <div>
+                    <h6 class="mb-0">CarBook Asistan</h6>
+                    <small class="text-white">Çevrimiçi</small>
+                </div>
+            </div>
+            <button id="closeChat" class="btn-close-chat">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <!-- Chat Body -->
+        <div class="chat-body" id="chatBody">
+            <!-- Hoş geldin mesajı -->
+            <div class="message bot-message">
+                <div class="message-content">
+                    Merhaba!CarBook'a hoş geldiniz. Size nasıl yardımcı olabilirim?
+                </div>
+                <small class="message-time">Şimdi</small>
+            </div>
+
+            <!-- Hızlı Cevap Butonları -->
+            <div class="quick-replies" id="quickReplies">
+                <button class="quick-reply-btn" data-question="prices">💰Fiyatlar</button>
+                <button class="quick-reply-btn" data-question="rental">🚗 Nasıl Kiralayabilirim?</button>
+                <button class="quick-reply-btn" data-question="requirements">📋 Gerekli Belgeler</button>
+                <button class="quick-reply-btn" data-question="insurance">🛡️ Sigorta</button>
+                <button class="quick-reply-btn" data-question="locations">📍 Şubelerimiz</button>
+                <button class="quick-reply-btn" data-question="support">📞 İletişim</button>
+            </div>
+        </div>
+
+        <!-- Chat Footer -->
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Mesajınızı yazın..." class="chat-input">
+            <button id="sendMessage" class="btn-send">
+                <i class="bi bi-send-fill"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Chat Button */
+    .chat-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: auto;
+        min-width: 100px;
+        height: 55px;
+        padding: 0 20px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #1089ff 0%, #0066cc 100%);
+        border: none;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(16, 137, 255, 0.4);
+        transition: all 0.3s ease;
+        z-index: 9998;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+        .chat-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(16, 137, 255, 0.6);
+        }
+
+        .chat-button i {
+            font-size: 22px;
+        }
+
+        .chat-button .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4444;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+    /* Chat Window */
+    .chat-window {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 380px;
+        height: 550px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        z-index: 9999;
+        animation: slideUp 0.3s ease;
+    }
+
+    @@keyframes slideUp {
+        from {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Chat Header */
+    .chat-header {
+        background: linear-gradient(135deg, #1089ff 0%, #0066cc 100%);
+        color: white;
+        padding: 20px;
+        border-radius: 16px 16px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .btn-close-chat {
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+        .btn-close-chat:hover {
+            transform: rotate(90deg);
+        }
+
+    /* Chat Body */
+    .chat-body {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        background: #f8f9fa;
+    }
+
+        .chat-body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-body::-webkit-scrollbar-thumb {
+            background: #1089ff;
+            border-radius: 3px;
+        }
+
+    /* Messages */
+    .message {
+        margin-bottom: 15px;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .bot-message .message-content {
+        background: white;
+        color: #333;
+        padding: 12px 16px;
+        border-radius: 18px 18px 18px 4px;
+        display: inline-block;
+        max-width: 80%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .user-message {
+        text-align: right;
+    }
+
+        .user-message .message-content {
+            background: linear-gradient(135deg, #1089ff 0%, #0066cc 100%);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 18px 18px 4px 18px;
+            display: inline-block;
+            max-width: 80%;
+        }
+
+    .message-time {
+        display: block;
+        margin-top: 5px;
+        font-size: 11px;
+        color: #999;
+    }
+
+    /* Quick Replies */
+    .quick-replies {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .quick-reply-btn {
+        background: white;
+        border: 2px solid #1089ff;
+        color: #1089ff;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .quick-reply-btn:hover {
+            background: #1089ff;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+    /* Chat Footer */
+    .chat-footer {
+        padding: 15px;
+        background: white;
+        border-radius: 0 0 16px 16px;
+        display: flex;
+        gap: 10px;
+        border-top: 1px solid #eee;
+    }
+
+    .chat-input {
+        flex: 1;
+        border: 2px solid #e0e0e0;
+        border-radius: 25px;
+        padding: 10px 15px;
+        outline: none;
+        font-size: 14px;
+    }
+
+        .chat-input:focus {
+            border-color: #1089ff;
+        }
+
+    .btn-send {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: #1089ff;
+        border: none;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .btn-send:hover {
+            background: #0066cc;
+            transform: scale(1.1);
+        }
+
+        .btn-send i {
+            font-size: 18px;
+        }
+
+    /* Mobile Responsive */
+    @@media (max-width: 768px) {
+        .chat-window {
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            right: 0;
+            border-radius: 0;
+        }
+
+        .chat-button {
+            bottom: 20px;
+            right: 20px;
+        }
+    }
+
+    /* Typing Indicator */
+    .typing-indicator {
+        display: flex;
+        gap: 4px;
+        padding: 12px 16px;
+        background: white;
+        border-radius: 18px;
+        width: fit-content;
+    }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #999;
+            animation: typing 1.4s infinite;
+        }
+
+            .typing-indicator span:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            .typing-indicator span:nth-child(3) {
+                animation-delay: 0.4s;
+            }
+
+    @@keyframes typing {
+        0%, 60%, 100% {
+            transform: translateY(0);
+        }
+
+        30% {
+            transform: translateY(-10px);
+        }
+    }
+</style>
+
+<script>
+    // Chat Veritabanı (FAQ)
+    const chatResponses = {
+        'prices': {
+            text: '--Ortalama Fiyatlarımız:--\n' +
+                '• Saatlik Fiyat: 520₺/Saat\n' +
+                '• Günlük Fiyat: 3405₺/Gün\n' +
+                '• Haftalık Fiyat: 750₺/Hafta\n' +
+                '• Aylık Fiyat: 600₺/Ay\n\n' +
+                'Haftalık ve aylık kiralamada %20 indirim!',
+            followUp: ['rental', 'insurance']
+        },
+        'rental': {
+            text: '--Kiralama Adımları --\n' +
+                '1. Web sitemizden araç seçin\n' +
+                '2. Tarih ve konum belirleyin\n' +
+                '3. Rezervasyon yapın\n' +
+                '4. Belgelerinizle şubemize gelin\n' +
+                '5. Aracınızı teslim alın!\n\n' +
+                'Online ön ödeme yaparsanız %10 indirim kazanırsınız.',
+            followUp: ['requirements', 'locations']
+        },
+        'requirements': {
+            text: ' --Gerekli Belgeler:--\n' +
+                '✅ Kimlik veya Pasaport\n' +
+                '✅ Sürücü Belgesi (En az 1 yıllık)\n' +
+                '✅ Kredi Kartı (güvence bedeli için)\n\n' +
+                '25 yaşından küçükseniz ek ücret uygulanır.',
+            followUp: ['rental', 'insurance']
+        },
+        'insurance': {
+            text: '--Sigorta Paketlerimiz:--\n' +
+                '• Standart Sigorta: Ücretsiz (dahil)\n' +
+                '• Tam Kasko: +50₺/gün\n' +
+                '• Mini Onarım: +25₺/gün\n\n' +
+                'Tüm araçlarımız kasko sigortası ile korunmaktadır.',
+            followUp: ['prices', 'rental']
+        },
+        'locations': {
+            "text": "--Şubelerimiz:--\n" +
+                    "🏢 Altunizade,Üsküdar\n" +
+                    "🏢 Bahariye Cd,Kadıköy\n" +
+                    "🏢 Barbaros Bulvarı,Beşiktaş\n" +
+                    "🏢 Levent,Şişli\n" +
+                    "🏢 Maslak,Sarıyer\n" +
+                    "🏢 Finans Merkezi,Ataşehir\n" +
+                    "🏢 Bağdat Cd.,Maltepe\n" +
+                    "🏢 Sahil Yolu Cd.,Pendik\n" +
+                    "🏢 Kennedy Cd.,Bakırköy\n" +
+                    "🏢 Şenlikköy Mah.,Florya\n" +
+                    "🏢 Gürpınar Yolu Cd.,Beylikdüzü\n" +
+                    "🏢 Tarabya Mah.,Sarıyer\n" +
+                    "🏢 Rüstem Paşa Mah.,Eminönü\n" +
+                    "🏢 Halaskargazi Cd.,Şişli\n" +
+                    "🏢 İstiklal Cd.,Beyoğlu\n\n" ,
+            "followUp": ["rental", "support"]
+        },
+        'support': {
+            text: '--Bize Ulaşın:--' +
+                '☎️ Telefon: 0850 123 45 67\n' +
+                '📧 Email: info@carbook.com\n' +
+                '💬 WhatsApp: 0532 123 45 67\n\n' +
+                'Müşteri hizmetlerimiz 7/24 hizmetinizdedir!',
+            followUp: ['rental', 'locations']
+        },
+        'default': {
+            text: '❓ Üzgünüm, bu konuda yardımcı olamıyorum. Lütfen aşağıdaki konulardan birini seçin:',
+            followUp: ['prices', 'rental', 'requirements', 'insurance', 'locations', 'support']
+        }
+    };
+
+    // Chat Widget JavaScript
+    document.addEventListener('DOMContentLoaded', function () {
+        const chatButton = document.getElementById('chatButton');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChat = document.getElementById('closeChat');
+        const chatBody = document.getElementById('chatBody');
+        const chatInput = document.getElementById('chatInput');
+        const sendMessage = document.getElementById('sendMessage');
+        const unreadCount = document.getElementById('unreadCount');
+
+        // Chat'i aç/kapat
+        chatButton.addEventListener('click', function () {
+            chatWindow.style.display = chatWindow.style.display === 'none' ? 'flex' : 'none';
+            if (chatWindow.style.display === 'flex') {
+                unreadCount.style.display = 'none';
+                chatInput.focus();
+            }
+        });
+
+        closeChat.addEventListener('click', function () {
+            chatWindow.style.display = 'none';
+        });
+
+        // Hızlı cevap butonları
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('quick-reply-btn')) {
+                const question = e.target.getAttribute('data-question');
+                handleQuickReply(question, e.target.textContent);
+            }
+        });
+
+        // Mesaj gönder
+        sendMessage.addEventListener('click', sendUserMessage);
+        chatInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendUserMessage();
+            }
+        });
+
+        function sendUserMessage() {
+            const message = chatInput.value.trim();
+            if (message === '') return;
+
+            addMessage(message, 'user');
+            chatInput.value = '';
+
+            setTimeout(() => {
+                showTypingIndicator();
+                setTimeout(() => {
+                    hideTypingIndicator();
+                    const response = findBestResponse(message);
+                    addMessage(response.text, 'bot');
+                    showFollowUpButtons(response.followUp);
+                }, 1500);
+            }, 500);
+        }
+
+        function handleQuickReply(question, buttonText) {
+            addMessage(buttonText, 'user');
+            document.getElementById('quickReplies').style.display = 'none';
+
+            setTimeout(() => {
+                showTypingIndicator();
+                setTimeout(() => {
+                    hideTypingIndicator();
+                    const response = chatResponses[question];
+                    addMessage(response.text, 'bot');
+                    showFollowUpButtons(response.followUp);
+                }, 1000);
+            }, 300);
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            const time = new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+
+            messageDiv.innerHTML = `
+                    <div class="message-content">${text.replace(/\n/g, '<br>')}</div>
+                    <small class="message-time">${time}</small>
+                `;
+
+            chatBody.appendChild(messageDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot-message';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                    <div class="typing-indicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                `;
+            chatBody.appendChild(typingDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) indicator.remove();
+        }
+
+        function findBestResponse(message) {
+            message = message.toLowerCase();
+
+            if (message.includes('fiyat') || message.includes('ücret') || message.includes('kaç')) {
+                return chatResponses['prices'];
+            } else if (message.includes('kiralama') || message.includes('rezervasyon')) {
+                return chatResponses['rental'];
+            } else if (message.includes('belge') || message.includes('evrak')) {
+                return chatResponses['requirements'];
+            } else if (message.includes('sigorta') || message.includes('kasko')) {
+                return chatResponses['insurance'];
+            } else if (message.includes('şube') || message.includes('adres') || message.includes('nerede')) {
+                return chatResponses['locations'];
+            } else if (message.includes('iletişim') || message.includes('telefon') || message.includes('destek')) {
+                return chatResponses['support'];
+            }
+
+            return chatResponses['default'];
+        }
+
+        function showFollowUpButtons(followUpKeys) {
+            const buttonLabels = {
+                'prices': '💰 Fiyatlar',
+                'rental': '🚗 Kiralama',
+                'requirements': '📋 Belgeler',
+                'insurance': '🛡️ Sigorta',
+                'locations': '📍 Şubeler',
+                'support': '📞 İletişim'
+            };
+
+            const followUpDiv = document.createElement('div');
+            followUpDiv.className = 'quick-replies';
+            followUpDiv.style.marginTop = '10px';
+
+            followUpKeys.forEach(key => {
+                const btn = document.createElement('button');
+                btn.className = 'quick-reply-btn';
+                btn.setAttribute('data-question', key);
+                btn.textContent = buttonLabels[key];
+                followUpDiv.appendChild(btn);
+            });
+
+            chatBody.appendChild(followUpDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    });
+</script>

@@ -1,0 +1,237 @@
+@model LoginAppUserViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Admin Kullanıcı Kayıt Paneli</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="UĞURKİRALAMA Yönetim Paneli Kayıt Sayfası" name="description" />
+    <meta content="UĞURKİRALAMA" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="shortcut icon" href="~/Admin/vertical/assets/images/favicon.ico">
+
+    <link href="~/Admin/vertical/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Admin/vertical/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Admin/vertical/assets/css/theme.min.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        body {
+            /* Gri-Beyaz-Siyah gradient (BMW M5 Touring görseline göre) */
+            background: linear-gradient(135deg, #E8E8E8 0%, #C0C0C0 20%, #888888 40%, #505050 60%, #2d2d2d 80%, #1a1a1a 100%);
+            min-height: 100vh;
+        }
+
+        .bg-register {
+            background-image: url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Card improvements */
+        .register-card {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        /* Form styling */
+        .form-control-user {
+            border-radius: 50px;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .form-control-user:focus {
+            border-color: #888888;
+            box-shadow: 0 0 0 0.2rem rgba(136, 136, 136, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Button styling */
+        .btn-success {
+            background: linear-gradient(135deg, #888888 0%, #505050 100%);
+            border: none;
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(80, 80, 80, 0.4);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(80, 80, 80, 0.6);
+            background: linear-gradient(135deg, #505050 0%, #888888 100%);
+        }
+
+        /* Social icons */
+        .social-list-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-list-item:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Title styling */
+        .register-title {
+            background: #0000;
+          
+            font-weight: 700;
+        }
+
+        /* Animation for card entrance */
+        .register-card {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @@keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive adjustments */
+        @@media (max-width: 991px) {
+            .bg-register {
+                min-height: 200px;
+            }
+        }
+
+        .swal2-popup {
+            border-radius: 20px !important;
+            box-shadow: 0 0 30px rgba(136, 136, 136, 0.5) !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex align-items-center min-vh-100">
+                        <div class="w-100 d-block register-card my-5">
+                            <div class="row">
+                                <div class="col-lg-6 d-none d-lg-block bg-register rounded-left"></div>
+                                <div class="col-lg-6">
+                                    <div class="p-5">
+
+                                        <div class="text-center mb-5">
+                                            <a href="index.html" class="register-title font-size-22 font-family-secondary text-decoration-none">
+                                                <b style="color:black">CarBook Yönetim Giriş Paneli</b>
+                                            </a>
+                                        </div>
+
+                                        <h1 class="h5 mb-1">Hoşgeldiniz</h1>
+                                        <p class="text-muted mb-4">Yönetim Paneline Erişmek için Lütfen Bilgilerinizi Giriniz.</p>
+
+                                        <form method="post">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form-control-user" id="exampleInpuUserName" placeholder="Kullanıcı Adınız" asp-for="Username">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Şifreniz" asp-for="Password">
+                                            </div>
+                                            <button type="submit" class="btn btn-success btn-block waves-effect waves-light">Giriş Yap </button>>
+                                        </form>
+
+                                            <div class="text-center mt-4">
+                                                <h5 class="text-muted font-size-16">Bizi Sosyal Medyada Takip Edin</h5>
+
+                                                <ul class="list-inline mt-3 mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github-circle"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                      
+                                        <div class="row mt-4">
+                                            <div class="col-12 text-center">
+                                                <p class="text-muted mb-2"><a href="pages-recoverpw.html" class="text-muted font-weight-medium ml-1">Şifrenizi mi Unuttunuz?</a></p>
+                                                <p class="text-muted mb-0">
+                                                    Hesabınız Yok Mu?
+                                                    <a href="/Register/CreateAppUser" class="text-muted font-weight-medium ml-1"><b style="color:black">Hesap Oluştur</b></a>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Admin/vertical/assets/js/jquery.min.js"></script>
+    <script src="~/Admin/vertical/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Admin/vertical/assets/js/metismenu.min.js"></script>
+    <script src="~/Admin/vertical/assets/js/waves.js"></script>
+    <script src="~/Admin/vertical/assets/js/simplebar.min.js"></script>
+    <script src="~/Admin/vertical/assets/js/theme.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        @* HATA *@
+        @if (TempData["Error"] != null)
+        {
+            <text>
+                        Swal.fire({
+                            title: 'Hata!',
+                        html: 'Kullanıcı Adı veya Şifre Hatalı.<br>Lütfen bilgilerinizi kontrol edin.',
+                            icon: 'error',
+                            confirmButtonText: 'Tekrar dene',
+                            background: '#ffffff',
+                            color: '#505050',
+                            confirmButtonColor: '#dc3545',
+                            iconColor: '#dc3545',
+                            showClass: {
+                                popup: 'animate__animated animate__shakeX'
+                                },
+                            hideClass: {
+                                popup: 'animate__animated animate__fadeOut'
+                                }
+                            });
+            </text>
+        }
+        });
+    </script>
+
+</body>
+</html>

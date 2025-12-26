@@ -1,0 +1,62 @@
+﻿@model UpdateServiceViewModel
+
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="d-flex align-items-center justify-content-center" style="min-height: 100vh; padding-top: 2rem;">
+    <div class="card shadow-sm border-0" style="width: 100%; max-width: 450px; border-radius: 12px;">
+        <div class="card-header text-white text-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px 12px 0 0; padding: 1.25rem;">
+            <h5 class="mb-0 text-white fw-semibold"><i class="mdi mdi-car-plus me-2"></i>Hizmet Güncelle</h5>
+        </div>
+        <div class="card-body p-3">
+            <form id="createServiceForm" method="post">
+                <input type="hidden" asp-for ="ServiceId" />
+                <div class="mb-2">
+                    <label asp-for="Title" class="form-label text-dark fw-semibold">Başlık</label>
+                    <input asp-for="Title" class="form-control" placeholder="Örn: 7/24 İletişim Desteği" style="border-radius: 8px;" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="mb-2">
+                    <label asp-for="Description" class="form-label text-dark fw-semibold">Açıklama</label>
+                    <input asp-for="Description" class="form-control" placeholder="Örn:CarBook Ailesi Olarak Bizlere 7/24 Ulaşabilirsini... " style="border-radius: 8px;" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="mb-2">
+                    <label asp-for="IconUrl" class="form-label text-dark fw-semibold">İkon</label>
+                    <input asp-for="IconUrl" class="form-control" placeholder="Örn: mdi mdi-account-group-outline" style="border-radius: 8px;" />
+                    <span asp-validation-for="IconUrl" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary w-100" style="border-radius: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none;">
+                    <i class="mdi mdi-content-save me-1"></i> Kaydet
+                </button>
+            </form>
+        </div>
+        <div class="card-footer bg-light text-center" style="border-radius: 0 0 12px 12px; padding: 0.75rem;">
+            <small class="text-muted text-danger d-block">Hizmet Bilgilerini Girerken Lütfen Kontrol Ediniz !</small>
+            <small class="text-muted">Bilgileri Girdikten Sonra Kaydet Tuşunu Basmayı Unutmayınız!</small>
+        </div>
+    </div>
+</div>
+<!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    const form = document.getElementById("createServiceForm");
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // formu hemen göndermeyi durdurur
+        Swal.fire({
+            title: 'Emin misiniz?',
+            text: "Bu Hizmeti Güncellemek Üzeresiniz!",
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Evet, Kaydet',
+            cancelButtonText: 'İptal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit(); // kullanıcı onaylarsa formu gönder
+            }
+        });
+    });
+</script>

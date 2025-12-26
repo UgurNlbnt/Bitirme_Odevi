@@ -1,0 +1,254 @@
+﻿@model List<ResultCommentViewModel>
+@{
+    ViewData["Title"] = "Yorum Listesi";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-11">
+                <div class="card shadow-lg border-custom-primary rounded-4 overflow-hidden animate__animated animate__fadeIn">
+                    <!-- HEADER -->
+                    <div class="card-header bg-gradient-custom text-white text-center py-4">
+                        <h3 class="fw-bold mb-0 text-white">
+                            Mesaj Listesi
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <p class="text-center text-muted mb-4 fs-6">
+                            Aşağıda, seçilen blog yazısına ait tüm kullanıcı yorumlarını görüntüleyebilirsiniz. 
+                            İhtiyacınıza göre yorumları kaldırabilir veya tekrar aktif hale getirmek için yanlarındaki butonları kullanabilirsiniz.
+                        </p>
+
+                        @if (Model == null || !Model.Any())
+                        {
+                            <div class="alert alert-info text-center py-5">
+                                <i class="fas fa-info-circle fa-3x mb-3 text-muted"></i>
+                                <h5>Henüz yorum bulunmamaktadır.</h5>
+                                <p class="mb-0">Bu blog yazısına henüz yorum yapılmamış.</p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="mb-4 text-center">
+                                <div class="d-inline-flex align-items-center bg-light shadow-sm px-4 py-2 rounded-pill animate__animated animate__fadeIn">
+                                    <span class="fw-semibold text-dark">
+                                        Toplam <span class="text-dark fw-bold">@Model.Count</span> Yorum
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="row g-3">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-12 col-md-6">
+                                        <div class="card h-100 comment-card table-row-hover">
+                                            <div class="card-body">
+                                                <div class="d-flex gap-3 mb-3">
+                                                    <div class="profile-pic-container flex-shrink-0">
+                                                        <img src="@(string.IsNullOrEmpty(item.UserImageurl) ? "/images/default-avatar.png" : item.UserImageurl)" 
+                                                             alt="@item.Name profil resmi" 
+                                                             class="profile-pic"
+                                                             onerror="this.src='/images/default-avatar.png'" />
+                                                    </div>
+                                                    <div class="flex-grow-1 ml-1">
+                                                        <h6 class="mb-1 fw-semibold">@item.Name</h6>
+                                                        <small class="text-muted ms-1">
+                                                            <i class="far fa-calendar-alt ml-1"></i>
+                                                            @item.CreatedDate.ToString("dd.MM.yyyy")
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="comment-description mb-3">
+                                                    <p class="text-muted mb-0" style="font-size: 0.9rem; line-height: 1.6;">
+                                                        @item.Description
+                                                    </p>
+                                                </div>
+                                                
+                                                <div class="d-flex justify-content-end gap-2">
+                                                    <a href="/Admin/AdminComment/DeleteComment/@item.CommentId"
+                                                       class="btn btn-sm btn-danger d-flex align-items-center px-3 py-1 rounded-3 shadow-sm">
+                                                        <i class="fas fa-trash-alt me-2"></i> &nbsp;Sil
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- STYLES -->
+<style>
+    /* Gradient Tema */
+    .bg-gradient-custom {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        color: #fff;
+    }
+
+    .btn-gradient-custom {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        color: #fff;
+        transition: all 0.3s ease;
+    }
+
+    .btn-gradient-custom:hover {
+        background: linear-gradient(135deg, #4b5eeb 0%, #603a89 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+        color: #fff;
+    }
+
+    .border-custom-primary {
+        border: 2px solid #667eea !important;
+    }
+
+    /* Kart Hover Efekti */
+    .comment-card {
+        transition: all 0.3s ease;
+        border: 1px solid #e9ecef;
+    }
+
+    .comment-card:hover {
+        background-color: rgba(102, 126, 234, 0.05) !important;
+        border-color: #667eea !important;
+        transform: translateY(-2px);
+        box-shadow: 0 0.5rem 1.5rem rgba(102, 126, 234, 0.15) !important;
+    }
+
+    /* Profil Resmi */
+    .profile-pic-container {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid #667eea;
+        box-shadow: 0 3px 8px rgba(118, 75, 162, 0.3);
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-pic {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Yorum Açıklama Alanı */
+    .comment-description {
+        max-height: 150px;
+        overflow-y: auto;
+        padding-right: 5px;
+    }
+
+    .comment-description::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .comment-description::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    .comment-description::-webkit-scrollbar-thumb {
+        background: #667eea;
+        border-radius: 10px;
+    }
+
+    .comment-description::-webkit-scrollbar-thumb:hover {
+        background: #764ba2;
+    }
+
+    /* Kart & Butonlar */
+    .card {
+        transition: all 0.3s ease;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .btn {
+        transition: all 0.3s ease;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(220, 53, 69, 0.4) !important;
+    }
+
+    /* Alert Stili */
+    .alert-info {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        border: 2px dashed #667eea;
+        border-radius: 15px;
+    }
+
+    /* Responsive */
+    @@media (max-width: 768px) {
+        .profile-pic-container {
+            width: 50px;
+            height: 50px;
+            border-width: 2px;
+        }
+        
+        .comment-description {
+            max-height: 100px;
+        }
+    }
+</style>
+<!-- SweetAlert2 CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Tüm silme butonlarını bul
+        const deleteButtons = document.querySelectorAll('a.btn-danger');
+
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault(); // Linkin direkt gitmesini engelle
+                const userName = this.closest('.card-body')
+                                     .querySelector('h6.fw-semibold')
+                                     ?.innerText.trim() || "bu kullanıcı";
+                const deleteUrl = this.getAttribute('href');
+
+                // SweetAlert2 onay kutusu
+                Swal.fire({
+                    title: 'Silmek İstediğinize Emin misiniz?',
+                    html: `<strong>${userName}</strong> Adlı Kullanıcının Yorumunu Silmek Üzeresiniz.`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#dc3545',
+                    cancelButtonColor: '#6c757d',
+                    confirmButtonText: 'Evet, sil',
+                    cancelButtonText: 'İptal',
+                    reverseButtons: true,
+                    backdrop: true
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Silme onaylandı
+                        window.location.href = deleteUrl;
+                    }
+                });
+            });
+        });
+    });
+</script>

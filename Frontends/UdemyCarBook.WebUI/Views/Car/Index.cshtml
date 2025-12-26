@@ -1,0 +1,100 @@
+﻿@model List<ResultCarPricingViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+
+
+
+    Layout = "~/Views/UILayout/Index.cshtml";
+
+
+
+
+
+
+
+    int selected = ViewBag.SelectedPricing == null ? 0 : (int)ViewBag.SelectedPricing;
+}
+
+<section class="ftco-section bg-light">
+
+    <!-- FILTRE BUTONLARI -->
+    <div class="container mb-4">
+        <div class="text-center">
+
+            <a href="/Car/Index?pricingId=2" class="btn @(selected == 2 ? "btn-primary" : "btn-outline-primary") mx-2">
+                Saatlik
+            </a>
+
+            <a href="/Car/Index?pricingId=3" class="btn @(selected == 3 ? "btn-primary" : "btn-outline-primary") mx-2">
+                Günlük
+            </a>
+
+            <a href="/Car/Index?pricingId=4" class="btn @(selected == 4 ? "btn-primary" : "btn-outline-primary") mx-2">
+                Haftalık
+            </a>
+
+            <a href="/Car/Index?pricingId=5" class="btn @(selected == 5 ? "btn-primary" : "btn-outline-primary") mx-2">
+                Aylık
+            </a>
+
+        </div>
+    </div>
+    <!-- / FILTRE BUTONLARI -->
+
+
+    <div class="container">
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="car-wrap rounded ftco-animate">
+                        <div class="img rounded d-flex align-items-end"
+                            style="background-image: url(@item.CoverImageUrl);">
+                        </div>
+                        <div class="text">
+                            <h2 class="mb-0">
+                                <a href="/Car/CarDetail/@item.CarId">@item.CarModel</a>
+                            </h2>
+
+                            <div class="d-flex mb-3">
+                                <span class="cat">@item.CarBrand</span>
+                                <p class="price ml-auto">
+                                    @item.PricingAmount <span>/@item.PricingName</span>
+                                </p>
+                            </div>
+
+                            <p class="d-flex mb-0 d-block">
+                                <a href="#" class="btn btn-primary py-2 mr-1">Hemen Kirala</a>
+                                <a href="/Car/CarDetail/@item.CarId" class="btn btn-secondary py-2 ml-1">
+                                    Detaylar
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+        <!-- SAYFALAMA -->
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul>
+                        <li><a href="#">&lt;</a></li>
+                        <li class="active"><span>1</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- / SAYFALAMA -->
+
+    </div>
+</section>

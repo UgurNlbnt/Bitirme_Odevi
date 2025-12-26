@@ -1,0 +1,83 @@
+﻿@model List<DahsboardFuelCategoryVİewModel>
+@{
+    // C# -> JS'ye veri aktarmak için
+    var labels = Newtonsoft.Json.JsonConvert.SerializeObject(Model.Select(x => x.Fueltype).ToList());
+    var data = Newtonsoft.Json.JsonConvert.SerializeObject(Model.Select(x => x.Count).ToList());
+}
+
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title d-inline-block">Yakıt Türüne Göre Araç Dağılımı</h4>
+            <div style="height: 260px;">
+                <canvas id="fuelChart"></canvas>
+            </div>
+            <div class="row text-center mt-4">
+                <div class="col-6">
+                    <h4>@Model.Count()</h4>
+                    <p class="text-muted mb-0">Yakıt Türü Sayısı</p>
+                </div>
+                <div class="col-6">
+                    <h4>@ViewBag.toplam</h4>
+                    <p class="text-muted mb-0">Toplam Yakıt</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end col -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const labels = @Html.Raw(labels);
+    const data = @Html.Raw(data);
+    
+    // Yakıt türüne göre renk belirleme
+    function getFuelColor(fuelType) {
+        const fuel = fuelType.toLowerCase();
+        if (fuel.includes('elektrik') || fuel.includes('hibrit')) {
+            return '#FFC50F'; // Sarı
+        } else if (fuel.includes('dizel') || fuel.includes('dizel')) {
+            return '#5b73e8'; // Mavi
+        } else if (fuel.includes('benzin') || fuel.includes('benzinli') || fuel.includes('gasoline')) {
+            return '#E4004B'; // Kırmızı
+        } else {
+            return '#34c38f'; // Varsayılan yeşil (hibrit vb. için)
+        }
+    }
+    
+    const colors = labels.map(label => getFuelColor(label));
+    
+    const ctx = document.getElementById('fuelChart').getContext('2d');
+    
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Araç Sayısı',
+                data: data,
+                backgroundColor: colors,
+                borderColor: '#fff',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 10,
+                        usePointStyle: true,
+                        font: {
+                            size: 12
+                        }
+                    }
+                }
+            },
+            cutout: '70%'
+        }
+    });
+</script>

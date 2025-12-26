@@ -1,0 +1,61 @@
+﻿@model List<ResultTestimonialViewModel>
+
+
+<style>
+    .testimony-wrap {
+        min-height: 420px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: flex-start;
+        padding: 30px;
+    }
+
+        .testimony-wrap .user-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 15px;
+        }
+
+        /* Yorum alanı sabit yükseklikte olacak */
+        .testimony-wrap .text p.mb-4 {
+            min-height: 120px; /* burası yorum kısmı yüksekliği */
+            max-height: 100px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+</style>
+ <section class="ftco-section testimony-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <span class="subheading">Bizim İçin Ne Dediler?</span>
+                <h2 class="mb-3">Müşteri Yorumları</h2>
+            </div>
+        </div>
+        <div class="row ftco-animate">
+            <div class="col-md-12">
+                <div class="carousel-testimony owl-carousel ftco-owl">
+                    @foreach (var item in Model)
+                    {
+                         <div class="item">
+                        <div class="testimony-wrap rounded text-center py-4 pb-5">
+                            <div class="user-img mb-2" style="background-image: url(@item.ImageUrl)">
+                            </div>
+                            <div class="text pt-4">
+                                <p class="mb-4">@item.Comment</p>
+                                <p class="name">@item.Name</p>
+                                <span class="position">@item.Title</span>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

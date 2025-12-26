@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-between">
+                    <h4 class="mb-0 font-size-18">Dashboard</h4>
+
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Xacton</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row">
+            @await Component.InvokeAsync("_AdminDashboardCardComponentPartial")
+        </div>
+        <!-- end row -->
+
+        <div class="row">
+            @await Component.InvokeAsync("_AdminDashboardChart1ComponentPartial")
+            @await Component.InvokeAsync("_AdminDashboardChart2ComponentPartial")
+            @await Component.InvokeAsync("_AdminDashboardChart3ComponentPartial")
+        </div>
+        <!-- end row-->
+
+
+        <div class="row"> 
+            @await Component.InvokeAsync("_AdminDashboardCarPricingListComponentPartial")
+            @await Component.InvokeAsync("_AdminDashboardBlogListComponentPartial")
+        </div>
+
+    </div> <!-- container-fluid -->
+</div>
+
+@section DashboardScripts
+{
+    <!-- Morris Js-->
+    <script src="~/Admin/plugins/morris-js/morris.min.js"></script>
+    <!-- Raphael Js-->
+    <script src="~/Admin/plugins/raphael/raphael.min.js"></script>
+    <!-- Morris Custom Js-->
+    <script src="~/Admin/vertical/assets/pages/dashboard-demo.js"></script>
+
+}

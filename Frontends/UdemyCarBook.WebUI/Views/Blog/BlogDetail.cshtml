@@ -1,0 +1,23 @@
+
+@{
+    ViewData["Title"] = "BlogDetail";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+ 
+<section class="ftco-section ftco-degree-bg">
+    <div class="container">
+        <div class="row">
+            @await Component.InvokeAsync("_BlogDetailMainComponentPartial", new { id = ViewBag.BlogId })
+            @* Yani new { id = ViewBag.BlogId } dediğinde, ismi olmayan ama içinde id adında bir property olan küçük bir anonim nesne oluşturup ViewComponent’e parametre olarak yolluyoruz *@
+            <div class="col-md-4 sidebar ftco-animate">
+                @await Component.InvokeAsync("_BlogDetailSearchBoxComponentPartial")
+
+                @await Component.InvokeAsync("_BlogDetailCategoryComponentPartial")
+
+                @await Component.InvokeAsync("_BlogDetailRecentBlogsComponentPartial")
+ 
+            </div>
+
+        </div>
+    </div>
+</section> <!-- .section -->

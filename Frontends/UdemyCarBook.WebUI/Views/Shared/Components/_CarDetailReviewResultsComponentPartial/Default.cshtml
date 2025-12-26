@@ -1,0 +1,88 @@
+﻿@model List<GetReviewCountViewModel>
+@{
+    int TotalReviewCount = Model.Count();
+    int FiveStarCount = Model.Where(x => x.RaytingValue == 5).Count();
+    int FiveStarCountPercent = TotalReviewCount == 0 ? 0 : (int)Math.Round((double)FiveStarCount / TotalReviewCount * 100);
+    int FourStarCount = Model.Where(x => x.RaytingValue == 4).Count();
+    int FourStarCountPercent = TotalReviewCount == 0 ? 0 : (int)Math.Round((double)FourStarCount / TotalReviewCount * 100);
+    int ThreeStarCount = Model.Where(x => x.RaytingValue == 3).Count();
+    int ThreeStarCountPercent = TotalReviewCount == 0 ? 0 : (int)Math.Round((double)ThreeStarCount / TotalReviewCount * 100);
+    int TwoStarCount = Model.Where(x => x.RaytingValue == 2).Count();
+    int TwoStarCountPercent = TotalReviewCount == 0 ? 0 : (int)Math.Round((double)TwoStarCount / TotalReviewCount * 100);
+    int OneStarCount = Model.Where(x => x.RaytingValue == 1).Count();
+    int OneStarCountPercent = TotalReviewCount == 0 ? 0 : (int)Math.Round((double)OneStarCount / TotalReviewCount * 100);
+}
+<style>
+    .rating-wrap .star {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .rating-wrap .star span:last-child {
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+</style>
+<div class="col-md-5">
+    <div class="rating-wrap">
+        <h3 class="head">Tüm Araçlara Ait Değerlendirme Sonuçları</h3>
+        <div class="wrap">
+            <p class="star">
+                <span>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star"></i>
+                    (%@FiveStarCountPercent)
+                </span>
+                <span>@FiveStarCount Değerlendirme</span>
+            </p>
+            <p class="star">
+                <span>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star-outline"></i>
+                    (%@FourStarCountPercent)
+                </span>
+                <span>@FourStarCount Değerlendirme</span>
+            </p>
+            <p class="star">
+                <span>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star-outline"></i>
+                    <i class="ion-ios-star-outline"></i>
+                    (%@ThreeStarCountPercent)
+                </span>
+                <span>@ThreeStarCount Değerlendirme</span>
+            </p>
+            <p class="star">
+                <span>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star-outline"></i>
+                    <i class="ion-ios-star-outline"></i>
+                    <i class="ion-ios-star-outline"></i>
+                    (%@TwoStarCountPercent)
+                </span>
+                <span>@TwoStarCount Değerlendirme</span>
+            </p>
+            <p class="star">
+                <span>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star-outline"></i>
+                    <i class="ion-ios-star-outline"></i>
+                    <i class="ion-ios-star-outline"></i>
+                    <i class="ion-ios-star-outline"></i>
+                    (%@OneStarCountPercent)
+                </span>
+                <span>@OneStarCount Değerlendirme</span>
+            </p>
+        </div>
+    </div>
+</div>

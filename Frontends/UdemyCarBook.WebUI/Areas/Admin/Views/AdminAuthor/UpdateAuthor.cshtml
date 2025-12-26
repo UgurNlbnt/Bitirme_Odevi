@@ -1,0 +1,113 @@
+﻿@model UpdateAuthorViewModel
+@{
+    ViewData["Title"] = "UpdateAuthor";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="d-flex align-items-center justify-content-center" style="min-height: 100vh; padding-top: 2rem;">
+    <div class="card shadow-sm border-0" style="width: 100%; max-width: 450px; border-radius: 12px;">
+        <div class="card-header text-white text-center position-relative" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px 12px 0 0; padding: 1.25rem; padding-bottom: 4rem;">
+            <h5 class="mb-0 text-white fw-semibold"><i class="mdi mdi-pencil me-2"></i>Yazar Güncelle</h5>
+
+            <!-- Profil Resmi -->
+            <div class="profile-image-container">
+                <img id="profilePreview" src="@Model.ImageUrl" alt="Profil Resmi" class="profile-image" />
+            </div>
+        </div>
+        <div class="card-body p-3" style="padding-top: 3.5rem !important;">
+            <form id="createAuthorForm" method="post">
+                <input type="hidden" asp-for="AuthorID" />
+                <div class="mb-2">
+                    <label asp-for="Name" class="form-label text-dark fw-semibold">İsim-Soyisim</label>
+                    <input asp-for="Name" class="form-control" placeholder="Örn: Dursun Değirmenci" style="border-radius: 8px;" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-2">
+                    <label asp-for="Description" class="form-label text-dark fw-semibold">Biyografi</label>
+                    <textarea asp-for="Description" class="form-control" rows="5" placeholder="Örn: Otomotiv dünyasında test sürüşleri yapan bir otomobil tutkunuyum..." style="border-radius: 8px;"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="mb-2">
+                    <label asp-for="ImageUrl" class="form-label text-dark fw-semibold">Görsel URL</label>
+                    <input asp-for="ImageUrl" id="imageUrlInput" class="form-control" placeholder="Örn: https://example.com/image.jpg" style="border-radius: 8px;" />
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary w-100" style="border-radius: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none;">
+                    <i class="mdi mdi-content-save me-1"></i> Güncelle
+                </button>
+            </form>
+        </div>
+        <div class="card-footer bg-light text-center" style="border-radius: 0 0 12px 12px; padding: 0.75rem;">
+            <small class="text-muted text-danger d-block">Kişinin Bilgilerini Girerken Lütfen Kontrol Ediniz!</small>
+            <small class="text-muted">Bilgileri Girdikten Sonra Güncelle Tuşunu Basmayı Unutmayınız!</small>
+        </div>
+    </div>
+</div>
+
+<!-- STYLES -->
+<style>
+    .profile-image-container {
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid #ffffff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        background-color: #f8f9fa;
+    }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+        }
+</style>
+
+<!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // Görsel URL değiştiğinde önizlemeyi güncelle
+    const imageUrlInput = document.getElementById("imageUrlInput");
+    const profilePreview = document.getElementById("profilePreview");
+
+    if (imageUrlInput) {
+        imageUrlInput.addEventListener("input", function () {
+            const newUrl = this.value.trim();
+            if (newUrl) {
+                profilePreview.src = newUrl;
+            }
+        });
+
+        // Görsel yüklenemezse varsayılan avatar göster
+        profilePreview.addEventListener("error", function () {
+            this.src = "https://ui-avatars.com/api/?name=" + encodeURIComponent("@Model.Name") + "&size=100&background=667eea&color=fff";
+        });
+    }
+
+    // Form submit
+    const form = document.getElementById("createAuthorForm");
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        Swal.fire({
+            title: 'Emin misiniz?',
+            text: "Bu Yazarı Güncellemek Üzeresiniz!",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#667eea',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Evet, Güncelle',
+            cancelButtonText: 'İptal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+            }
+        });
+    });
+</script>

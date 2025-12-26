@@ -1,0 +1,16 @@
+﻿<div class="col-md-8 ftco-animate">
+    @await Component.InvokeAsync("_BlogDetailReadContentComponentPartial", new { id = ViewBag.blogId })
+
+    @await Component.InvokeAsync("_BlogDetailTagCloudByBlogComponentPartial", new { id = ViewBag.blogId })
+
+    @await Component.InvokeAsync("_BlogDetailAuthorAboutComponentPartial", new { id = ViewBag.blogId })
+
+
+
+    <div class="pt-5 mt-5">
+        @await Component.InvokeAsync("_CommentListByBlogComponentPartial", new { id = ViewBag.blogId })
+
+        @await Component.InvokeAsync("_CreateCommentComponentPartial", new{id = ViewBag.blogId})
+    </div>
+
+</div> <!-- .col-md-8 -->

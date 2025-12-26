@@ -1,0 +1,128 @@
+@model List<GetReviewByCarIdViewModel>
+@{
+    ViewData["Title"] = "Araç Detayları";
+
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+
+    var desc = ViewBag.Description as GetCarDescriptionByCarIdViewModel;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-11">
+                <div
+                    class="card shadow-lg border-custom-primary rounded-4 overflow-hidden animate__animated animate__fadeIn">
+
+                    <div class="card-header bg-gradient-custom text-white text-center py-4">
+                        <h3 class="fw-bold mb-0 text-white">
+                            Araç Detayları ve Yorumlar
+                        </h3>
+                    </div>
+
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="fw-semibold">Araç Açıklaması</h5>
+                                @if (desc != null)
+
+                                {
+                                    <form method="post" action="/Admin/AdminCarDetails/UpdateDescription">
+                                        <input type="hidden" name="carId" value="@ViewBag.CarId" />
+                                        <div class="mb-3">
+                                            <textarea class="form-control" name="details" rows="6">@desc.Details</textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-gradient-custom">Kaydet</button>
+                                    </form>
+                                }
+
+                                else
+
+                                {
+                                    <form method="post" action="/Admin/AdminCarDetails/UpdateDescription">
+                                        <input type="hidden" name="carId" value="@ViewBag.CarId" />
+                                        <div class="mb-3">
+                                            <textarea class="form-control" name="details" rows="6"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-gradient-custom">Kaydet</button>
+                                    </form>
+                                }
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-semibold">Yorumlar</h5>
+                                @if (Model == null || !Model.Any())
+
+                                {
+                                    <div class="alert alert-info">Bu araca ait yorum bulunmuyor.</div>
+                                }
+
+                                else
+
+                                {
+                                    <table class="table table-hover align-middle text-center mb-0">
+                                        <thead class="bg-gradient-custom text-white">
+                                            <tr>
+                                                <th>Ad</th>
+                                                <th>Puan</th>
+                                                <th>Tarih</th>
+                                                <th>Yorum</th>
+                                                <th>İşlem</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var r in Model)
+
+                                            {
+                                                <tr>
+                                                    <td class="fw-semibold">@r.CustomerName</td>
+                                                    <td>@r.RaytingValue</td>
+                                                    <td>@r.ReviewDate.ToShortDateString()</td>
+                                                    <td class="text-start">@r.Comment</td>
+                                                    <td>
+                                                        <form method="post" action="/Admin/AdminCarDetails/DeleteReview">
+                                                            <input type="hidden" name="id" value="@r.ReviewId" />
+                                                            <input type="hidden" name="carId" value="@ViewBag.CarId" />
+                                                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                                Kaldır
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer text-end">
+                        <a href="/AdminCar/Index" class="btn btn-gradient-custom px-4 py-2 shadow-sm rounded-3">
+                            Geri Dön
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-gradient-custom,
+    .btn-gradient-custom {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        color: #fff;
+    }
+
+    .btn-gradient-custom:hover {
+        background: linear-gradient(135deg, #4b5eeb 0%, #603a89 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4) !important;
+        color: #fff;
+    }
+
+    .border-custom-primary {
+        border: 2px solid #667eea !important;
+    }
+</style>

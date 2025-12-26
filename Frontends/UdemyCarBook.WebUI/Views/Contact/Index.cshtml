@@ -1,0 +1,152 @@
+﻿@model CreateContactVİewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+<section class="ftco-section contact-section">
+    <div class="container">
+        <div class="row d-flex mb-5 contact-info">
+            @await Component.InvokeAsync("_FooterAddresComponentPartial")
+            <div class="col-md-8 block-9 mb-md-5">
+                <form class="bg-light p-5 contact-form" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Adınız Soyadınız" asp-for="Name" >
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Mailiniz" asp-for="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Konu" asp-for="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea cols="30" rows="7" class="form-control" placeholder="Mesajınız" asp-for="Message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Mesajı Gönder" class="btn btn-primary py-3 px-5">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.4241771717684!2d29.036656375899994!3d41.0378521713464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab72134271ee9%3A0xb78d35eeb85f36eb!2sNakka%C5%9Ftepe%20Millet%20Bah%C3%A7esi!5e0!3m2!1str!2str!4v1759833984144!5m2!1str!2str" width="1100" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const status = '@TempData["ContactState"]';
+        
+        if (status === 'success') {
+            Swal.fire({
+                title: '<strong style="font-family: \'Inter\', sans-serif; font-weight: 600; color: #f8fafc;">Mesajınız İletildi</strong>',
+                html: '<p style="font-family: \'Inter\', sans-serif; color: #cbd5e1; margin-top: 8px; font-size: 0.95rem;">Talebiniz başarıyla alındı. Ekibimiz en kısa sürede sizinle iletişime geçecektir.</p>',
+                icon: 'success',
+                background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
+                backdrop: 'rgba(0, 0, 0, 0.7)',
+                color: '#f8fafc',
+                iconColor: '#10b981',
+                confirmButtonText: '<span style="font-weight: 500; letter-spacing: 0.5px;">Anladım</span>',
+                confirmButtonColor: '#10b981',
+                customClass: {
+                    popup: 'swal-dark-popup',
+                    title: 'swal-dark-title',
+                    htmlContainer: 'swal-dark-text',
+                    confirmButton: 'swal-dark-button'
+                },
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown animate__faster'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp animate__faster'
+                }
+            });
+        } else if (status === 'error') {
+            Swal.fire({
+                title: '<strong style="font-family: \'Inter\', sans-serif; font-weight: 600; color: #f8fafc;">İşlem Başarısız</strong>',
+                html: '<p style="font-family: \'Inter\', sans-serif; color: #cbd5e1; margin-top: 8px; font-size: 0.95rem;">Mesajınız gönderilemedi. Lütfen bağlantınızı kontrol edip tekrar deneyiniz.</p>',
+                icon: 'error',
+                background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
+                backdrop: 'rgba(0, 0, 0, 0.7)',
+                color: '#f8fafc',
+                iconColor: '#ef4444',
+                confirmButtonText: '<span style="font-weight: 500; letter-spacing: 0.5px;">Tekrar Dene</span>',
+                confirmButtonColor: '#ef4444',
+                customClass: {
+                    popup: 'swal-dark-popup',
+                    title: 'swal-dark-title',
+                    htmlContainer: 'swal-dark-text',
+                    confirmButton: 'swal-dark-button'
+                },
+                showClass: {
+                    popup: 'animate__animated animate__shakeX animate__faster'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp animate__faster'
+                }
+            });
+        }
+    });
+</script>
+
+<style>
+    .swal-dark-popup {
+        border-radius: 20px !important;
+        padding: 2.5rem !important;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 
+                    0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(10px) !important;
+    }
+    
+    .swal-dark-title {
+        font-size: 1.6rem !important;
+        margin-bottom: 0.5rem !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    .swal-dark-text {
+        font-size: 0.95rem !important;
+        line-height: 1.7 !important;
+        opacity: 0.95 !important;
+    }
+    
+    .swal-dark-button {
+        border-radius: 12px !important;
+        padding: 13px 36px !important;
+        font-size: 0.95rem !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    .swal-dark-button:hover {
+        transform: translateY(-3px) scale(1.02) !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+    }
+    
+    .swal-dark-button:active {
+        transform: translateY(-1px) scale(0.98) !important;
+    }
+    
+    .swal2-icon {
+        border-width: 3px !important;
+        margin: 2rem auto 1.2rem !important;
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.3) !important;
+    }
+    
+    .swal2-icon.swal2-error {
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.3) !important;
+    }
+    
+    /* Glassmorphism efekti */
+    .swal2-backdrop-show {
+        backdrop-filter: blur(8px) !important;
+    }
+</style>

@@ -1,0 +1,259 @@
+@model List<ResultFooterAddressViewModel>
+
+@if (Model != null && Model.Any())
+{
+    @foreach (var item in Model)
+    {
+        <footer class="ftco-footer ftco-bg-dark ftco-section">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2"><a href="#" class="logo">UĞUR<span>KİRALAMA</span></a></h2>
+                            <p>@item.Description</p>
+
+                            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bilgiler -->
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4 ml-md-5">
+                            <h2 class="ftco-heading-2">Bilgiler</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="/About/Index" class="py-2 d-block">Hakkımızda</a></li>
+                                <li><a href="/Service/Index" class="py-2 d-block">Hizmetlerimiz</a></li>
+                                <li><a id="btn1" href="javascript:void(0)" class="py-2 d-block">Şartlar ve Koşullar</a></li>
+                                <li><a id="btn2" href="javascript:void(0)" class="py-2 d-block">Güvenlik</a></li>
+                                <li><a id="btn3" href="javascript:void(0)" class="py-2 d-block">Çerez Politikası</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Müşteri Desteği -->
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2">Müşteri Desteği</h2>
+                            <ul class="list-unstyled">
+                                <li><a id="btn4" href="javascript:void(0)" class="py-2 d-block">Sıkça Sorulanlar</a></li>
+                                <li><a id="btn6" href="javascript:void(0)" class="py-2 d-block">Ödeme Yöntemleri</a></li>
+                                <li><a id="btn5" href="javascript:void(0)" class="py-2 d-block">Nasıl Çalışır</a></li>
+                                <li><a href="#" class="py-2 d-block">Araç Kiralama</a></li>
+                                <li><a href="/Contact/Index" class="py-2 d-block">Bize Ulaşın</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Konum -->
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2">Konum</h2>
+                            <div class="block-23 mb-3">
+                                <ul>
+                                    <li><span class="icon icon-map-marker"></span><span class="text">@item.Address</span></li>
+                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">@item.Phone</span></a></li>
+                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">@item.Email</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p>
+                            <script>document.write(new Date().getFullYear());</script> | Tüm Hakları Saklıdır Uğur Nalbant |
+                            This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by
+                            <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    }
+}
+else
+{
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2"><a href="#" class="logo">UĞUR<span>KİRALAMA</span></a></h2>
+                        <p>Araç kiralama hizmetlerimizde kalite ve güvenin adresi.</p>
+
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bilgiler -->
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">Bilgiler</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="/About/Index" class="py-2 d-block">Hakkımızda</a></li>
+                            <li><a href="/Service/Index" class="py-2 d-block">Hizmetlerimiz</a></li>
+                            <li><a id="btn1" href="javascript:void(0)" class="py-2 d-block">Şartlar ve Koşullar</a></li>
+                            <li><a id="btn2" href="javascript:void(0)" class="py-2 d-block">Güvenlik</a></li>
+                            <li><a id="btn3" href="javascript:void(0)" class="py-2 d-block">Çerez Politikası</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Müşteri Desteği -->
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Müşteri Desteği</h2>
+                        <ul class="list-unstyled">
+                            <li><a id="btn4" href="javascript:void(0)" class="py-2 d-block">Sıkça Sorulanlar</a></li>
+                            <li><a id="btn6" href="javascript:void(0)" class="py-2 d-block">Ödeme Yöntemleri</a></li>
+                            <li><a id="btn5" href="javascript:void(0)" class="py-2 d-block">Nasıl Çalışır</a></li>
+                            <li><a href="#" class="py-2 d-block">Araç Kiralama</a></li>
+                            <li><a href="/Contact/Index" class="py-2 d-block">Bize Ulaşın</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Konum -->
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Konum</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">Adres bilgisi girilmedi</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">Telefon girilmedi</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">Email girilmedi</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>
+                        <script>document.write(new Date().getFullYear());</script> | Tüm Hakları Saklıdır Berkay Genceroğlu |
+                        This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by
+                        <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+}
+
+<!-- Loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+    </svg>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    $(function () {
+
+        // Şartlar ve Koşullar
+        $('#btn1').on('click', function () {
+            Swal.fire({
+                title: 'Şartlar & Koşullar',
+                html: `
+                    <p>Bu metin bilgilendirme amacı taşır. Araç kiralama süreci, kimlik doğrulama ve gerekli belgelerin sunulmasıyla ofisimizde imzalanacak resmî sözleşmeyle geçerlilik kazanır.</p>
+                    <p>Ofiste atılan ıslak imzalar, kiralama sürecinin yasal olarak başlatıldığını gösterir.</p>
+                `,
+                icon: 'info',
+                confirmButtonText: 'Anladım'
+            });
+        });
+
+        // Güvenlik
+        $('#btn2').on('click', function () {
+            Swal.fire({
+                title: 'Güvenlik Politikası',
+                html: `
+                    <p>Müşteri bilgileriniz gizlilik ilkeleri doğrultusunda korunur. Bilgiler yalnızca kiralama işlemlerinde kullanılır ve üçüncü kişilerle paylaşılmaz.</p>
+                    <p>Veriler, güvenli sunucularımızda saklanmakta olup yetkisiz erişimlere karşı koruma altındadır.</p>
+                `,
+                icon: 'warning',
+                confirmButtonText: 'Anladım'
+            });
+        });
+
+        // Çerez Politikası
+        $('#btn3').on('click', function () {
+            Swal.fire({
+                title: 'Çerez Politikası',
+                html: `
+                    <p>Web sitemiz, kullanıcı deneyimini geliştirmek ve hizmet kalitesini artırmak amacıyla çerez (cookie) kullanır.</p>
+                    <p>Çerez tercihlerinizi tarayıcı ayarlarınızdan değiştirebilir, dilediğiniz zaman silebilirsiniz.</p>
+                `,
+                icon: 'info',
+                confirmButtonText: 'Tamam'
+            });
+        });
+
+        // Sıkça Sorulan Sorular
+        $('#btn4').on('click', function () {
+            Swal.fire({
+                title: 'Sıkça Sorulan Sorular',
+                html: `
+                    <p><strong>S: Aracı erken iade edersem ücret iade edilir mi?</strong><br>Hayır, kalan süreye ait ücret iade edilmez.</p>
+                    <p><strong>S: Ehliyet süresi ne kadar olmalı?</strong><br>En az 2 yıllık geçerli sürücü belgesi gereklidir.</p>
+                    <p><strong>S: Kilometre sınırı var mı?</strong><br>Evet, günlük kiralamalarda belirli bir kilometre sınırı uygulanır.</p>
+                `,
+                icon: 'question',
+                confirmButtonText: 'Kapat'
+            });
+        });
+
+    });
+
+
+    $('#btn5').on('click', function () {
+        Swal.fire({
+            title: 'Nasıl Çalışır?',
+            html: `
+                        <p>Araç kiralama süreci oldukça basittir:</p>
+                        <ul style="text-align:left">
+                            <li>1️⃣ Web sitemizden dilediğiniz aracı seçin.</li>
+                            <li>2️⃣ Kiralama tarih aralığınızı belirleyin.</li>
+                            <li>3️⃣ Ofisimizde kimlik ve sürücü belgenizle birlikte sözleşme imzalayın.</li>
+                            <li>4️⃣ Aracınızı teslim alın ve keyifli sürüşe başlayın!</li>
+                        </ul>
+                        <p><b>Not:</b> Kiralama işlemleri yalnızca ofiste imzalanan resmî sözleşme sonrası geçerlidir.</p>
+                    `,
+            icon: 'info',
+            confirmButtonText: 'Tamam'
+        });
+    });
+
+    // 💳 ÖDEME YÖNTEMLERİ
+    $('#btn6').on('click', function () {
+        Swal.fire({
+            title: 'Ödeme Yöntemleri',
+            html: `
+                        <p>CarBook, size esnek ödeme seçenekleri sunar:</p>
+                        <ul style="text-align:left">
+                            <li>💳 Kredi Kartı (Visa, MasterCard, American Express)</li>
+                            <li>🏦 Banka Kartı veya Havale/EFT</li>
+                            <li>💰 Ofiste Nakit Ödeme (yalnızca yerinde kiralamalarda geçerlidir)</li>
+                        </ul>
+                        <p>Tüm online ödemeler, güvenli SSL sertifikasıyla korunur.</p>
+                    `,
+            icon: 'success',
+            confirmButtonText: 'Anladım'
+        });
+    });
+</script>

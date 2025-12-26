@@ -1,0 +1,64 @@
+﻿@model UpdateFeatureViewModel
+
+@{
+    ViewData["Title"] = "UpdateCarFeature";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="card shadow-sm border-0" style="width: 100%; max-width: 520px; border-radius: 12px;">
+        <div class="card-header text-white text-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px 12px 0 0; padding: 1.5rem;">
+            <h5 class="mb-0 text-white fw-semibold">
+                <i class="mdi mdi-car-wrench me-2"></i> Özellik Güncelle
+            </h5>
+        </div>
+
+        <div class="card-body p-4">
+            <form id="updateFeatureForm" method="post">
+                <input type="hidden" asp-for="FeatureID" />
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label text-dark fw-semibold">Araç Özellik Adı</label>
+                    <input asp-for="Name" class="form-control form-control-lg" placeholder="Örn: Koltuk Isıtma" style="border-radius: 8px;" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 btn-lg"
+                        style="border-radius: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none;">
+                    <i class="mdi mdi-content-save me-1"></i> Güncelle
+                </button>
+            </form>
+        </div>
+
+        <div class="card-footer bg-light text-center" style="border-radius: 0 0 12px 12px;">
+            <small class="text-muted">Sadece Özellik İsmini Güncelleyiniz</small>
+        </div>
+    </div>
+</div>
+
+<!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    // 1️⃣ Form gönderilmeden önce onay popup'ı çıkar
+    const form = document.getElementById("updateFeatureForm");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // sayfanın hemen post edilmesini engelle
+
+        Swal.fire({
+            title: 'Emin misiniz?',
+            text: "Bu özelliği güncellemek üzeresiniz!",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#667eea',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Evet, Güncelle',
+            cancelButtonText: 'İptal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit(); // kullanıcı onaylarsa formu gönder
+            }
+        });
+    });
+</script>

@@ -1,0 +1,96 @@
+﻿+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Car ve Feature tablosu many-to-many ilişki yaşadığı için, arada CarFeature gibi bir köprü/junction tablo açıyoruz. Bu tablo “bir arabada hangi özellik var” sorusunu düzenli, sorgulanabilir ve normalize bir şekilde çözmek için şarttır.
+
+🚗 Problem Senaryosu
+
+Bir Car tablomuz var, arabalar tutuluyor:
+
+CarId, Brand, Model, Year …
+
+Bir de Feature tablomuz var, arabanın özellikleri tutuluyor:
+
+FeatureId, Name → (Sunroof, Bluetooth, ABS, vs.)
+
+Şimdi bir araba birden fazla feature’a sahip olabilir.
+Aynı feature da birden fazla arabada olabilir.
+
+👉 Yani ilişki türü çoktan çoğa (many-to-many).
+
+✅ CarFeature (Junction / Bridge Table) Mantığı
+
+Bunu çözmek için ortak bir ilişki tablosu açıyoruz: CarFeature
+
+CarId
+
+FeatureId
+
+Bu tablo sadece ilişkileri tutar.
+Böylece hangi arabanın hangi özelliği var sorusunu net olarak çözeriz.
+
+🔗 Örnek
+
+Tablolar:
+
+Car
+
+CarId	Brand	Model
+1	BMW	X5
+2	Tesla	Model S
+
+Feature
+
+FeatureId	Name
+1	Sunroof
+2	Bluetooth
+3	Autopilot
+
+CarFeature
+
+CarId	FeatureId
+1	1
+1	2
+2	2
+2	3
+🎯 Avantajları
+
+Veri Tekrarını Önler → Feature sadece 1 kez tanımlanır.
+
+Sorgular Esnektir → “Bluetooth olan arabaları getir” kolay.
+
+Yeni Feature eklemek kolaydır → Sadece CarFeature’a satır eklenir.
+
+İlişki esnek → 1 arabada 100 özellik olabilir, bir özellik 100 arabaya bağlanabilir.
+
+-------------------------------------------------------------
+Eğer ortak nokta (CarFeature gibi junction tablo) üzerinden birleştirmezsek:
+
+Çoktan-çoğa ilişkiyi doğru kuramayız.
+→ Ya Car tablosunda Feature1, Feature2, Feature3... diye sütunlar açmak zorunda kalırsın (esnek değil).
+→ Ya da Feature tablosunda Car1, Car2, Car3... gibi sütunlar olur (tamamen yanlış tasarım).
+
+Veri tekrar eder.
+→ "Bluetooth" özelliği 100 arabada varsa, 100 kez yazmak zorunda kalırsın.
+
+Sorgulamak zorlaşır.
+→ "Bluetooth olan arabaları getir" gibi sorgular normal SQL ile çok karmaşık hale gelir.
+
+Bakım zorlaşır.
+→ Yeni bir özellik eklemek için tabloyu değiştirmek (yeni sütun eklemek) gerekir.
+
+🔑 Özet: Ortak tablo olmadan ilişki dağınık, tekrar eden, sorgulanması zor ve genişletilemez olur.
+Ortak tablo → düzenli, ölçeklenebilir ve kolay sorgulanabilir çözüm sağlar ✅
+---------------------------
+CarFeature sınıfını koyunca:
+
+Car → sadece araba bilgisi
+
+Feature → sadece özellik bilgisi
+
+CarFeature → arabayla özelliği bağlayan köprü
+
+Böylece:
+
+Car sınıfı şişmez (10 özellik → 10 property yerine sadece ilişkiler).
+
+Yeni özellik geldiğinde sadece Feature tablosuna ekleriz, Car kodunu hiç değiştirmeyiz.
+
+Arabaların hangi özelliklere sahip olduğu ilişki tablosu üzerinden öğreni

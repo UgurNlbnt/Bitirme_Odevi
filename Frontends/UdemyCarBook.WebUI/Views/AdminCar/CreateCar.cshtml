@@ -1,0 +1,229 @@
+﻿@model CreateCarViewModel
+@{
+    ViewData["Title"] = "CreateCar";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-9">
+                <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-header bg-primary bg-soft border-0 text-center">
+                        <h4 class="card-title text-primary mb-0">
+                            <i class="mdi mdi-car-plus me-2"></i>Yeni Araç Ekle
+                        </h4>
+                    </div>
+
+                    <div class="card-body p-4">
+                        <div class="alert alert-info border-0 text-center" role="alert">
+                            <i class="mdi mdi-information-outline me-2"></i>
+                            Lütfen tüm alanları eksiksiz doldurunuz. Girişlerinizi tamamladıktan sonra <strong>"Kaydet"</strong> butonuna tıklayarak işlemi sonlandırabilirsiniz.
+                        </div>
+
+                        <form method="post" class="needs-validation" novalidate>
+                            <div class="row g-4">
+                                <!-- Marka/Model -->
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        @Html.DropDownListFor(x => x.BrandId,
+                                                 (List<SelectListItem>)ViewBag.brandValues,
+                                                 "-- Marka Seçiniz --",
+                                                 new { @class = "form-select", required = "required" })
+                                        <label for="BrandId">Araç Marka/Model</label>
+                                        <div class="invalid-feedback">Lütfen bir marka seçiniz.</div>
+                                    </div>
+                                </div>
+
+                                <!-- KM -->
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="Km" asp-for="Km" placeholder="KM" required>
+                                        <label for="Km">Kilometre</label>
+                                        <div class="invalid-feedback">Lütfen KM bilgisini giriniz.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Vites -->
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="Transmission" asp-for="Transmission" required>
+                                            <option value="">-- Seçiniz --</option>
+                                            <option value="Manuel">Manuel</option>
+                                            <option value="Otomatik">Otomatik</option>
+                                            <option value="Yarı Otomatik">Yarı Otomatik</option>
+                                        </select>
+                                        <label for="Transmission"><i class="mdi mdi-car-shift-pattern me-1"></i>Vites Tipi</label>
+                                        <div class="invalid-feedback">Lütfen vites tipini seçiniz.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Koltuk -->
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="Seat" asp-for="Seat" placeholder="Koltuk" min="2" max="9" required>
+                                        <label for="Seat"><i class="mdi mdi-seat-passenger me-1"></i>Koltuk Sayısı</label>
+                                        <div class="invalid-feedback">Lütfen koltuk sayısını giriniz.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Bagaj -->
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="Luggage" asp-for="Luggage" placeholder="Bagaj" min="0" required>
+                                        <label for="Luggage"><i class="mdi mdi-bag-suitcase me-1"></i>Bagaj Kapasitesi</label>
+                                        <div class="invalid-feedback">Lütfen bagaj kapasitesini giriniz.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Yakıt -->
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="Fuel" asp-for="Fuel" required>
+                                            <option value="">-- Seçiniz --</option>
+                                            <option value="Benzin">Benzin</option>
+                                            <option value="Dizel">Dizel</option>
+                                            <option value="Elektrik">Elektrik</option>
+                                            <option value="Hibrit">Hibrit</option>
+                                            <option value="LPG">LPG</option>
+                                        </select>
+                                        <label for="Fuel"><i class="mdi mdi-gas-station me-1"></i>Yakıt Türü</label>
+                                        <div class="invalid-feedback">Lütfen yakıt türünü seçiniz.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Görsel -->
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="url" class="form-control" id="BigImageUrl" asp-for="BigImageUrl" placeholder="Görsel URL" required>
+                                        <label for="BigImageUrl"><i class="mdi mdi-image me-1"></i>Görsel URL</label>
+                                        <div class="form-text">Araç görselinin tam URL adresini giriniz.</div>
+                                        <div class="invalid-feedback">Lütfen geçerli bir görsel URL'si giriniz.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="text-center mt-4">
+                                <button type="button" class="btn btn-light me-2" onclick="window.history.back()">
+                                    <i class="mdi mdi-arrow-left"></i> İptal
+                                </button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                    <i class="mdi mdi-content-save me-1"></i> Kaydet
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    // Form validation
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+
+    // TempData mesajlarını göster
+    @if (TempData["Success"] != null)
+    {
+        <text>
+                Swal.fire({
+                    icon: 'success',
+                title: '✓ İşlem Başarılı!',
+                html: '<p class="mb-2">Araç başarıyla sisteme eklendi.</p><small class="text-muted">Araç listesine yönlendiriliyorsunuz...</small>',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                backdrop: true,
+                allowOutsideClick: false,
+                customClass: {
+                    popup: 'animated fadeInDown',
+                title: 'text-success',
+                htmlContainer: 'text-muted'
+                    },
+                    didOpen: () => {
+                    Swal.showLoading();
+                    },
+                    willClose: () => {
+                    window.location.href = '@Url.Action("Index", "AdminCar")';
+                    }
+                });
+        </text>
+    }
+
+    @if (TempData["False"] != null)
+    {
+        <text>
+                Swal.fire({
+                    icon: 'error',
+                title: '✗ İşlem Başarısız!',
+                html: '<p class="mb-2">Araç eklenirken bir hata oluştu.</p><small class="text-muted">Lütfen bilgileri kontrol edip tekrar deneyiniz.</small>',
+                confirmButtonText: '<i class="mdi mdi-refresh me-1"></i> Tekrar Dene',
+                confirmButtonColor: '#f46a6a',
+                showCancelButton: true,
+                cancelButtonText: 'Kapat',
+                cancelButtonColor: '#74788d',
+                customClass: {
+                    popup: 'animated shake',
+                title: 'text-danger',
+                confirmButton: 'btn btn-danger waves-effect waves-light',
+                cancelButton: 'btn btn-secondary waves-effect'
+                    },
+                buttonsStyling: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                    location.reload();
+                    }
+                });
+        </text>
+    }
+</script>
+
+<style>
+    .bg-soft {
+        background-color: rgba(var(--bs-primary-rgb), 0.1) !important;
+    }
+
+    .form-floating > .form-control,
+    .form-floating > .form-select {
+        height: calc(3.5rem + 2px);
+        padding: 1rem 0.75rem;
+    }
+
+    .form-floating > label {
+        padding: 1rem 0.75rem;
+    }
+
+    .card {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+
+    /* 🎯 Ortalamayı sağlayan ana stil */
+    .page-content {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>

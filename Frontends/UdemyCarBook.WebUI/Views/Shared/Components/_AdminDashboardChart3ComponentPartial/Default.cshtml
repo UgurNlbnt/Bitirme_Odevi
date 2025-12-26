@@ -1,0 +1,115 @@
+﻿@model List<DashboardLocationWithCarByAvaliable>
+
+@{
+    var labels = Newtonsoft.Json.JsonConvert.SerializeObject(
+        Model.Select(x => 
+            x.locationName.Contains(',') ? x.locationName.Split(',')[0] : x.locationName // sadece semt adını al
+        ).ToList()
+    );
+    var data = Newtonsoft.Json.JsonConvert.SerializeObject(Model.Select(x => x.availableCarCount).ToList());
+}
+
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title d-inline-block">Lokasyon Verileri</h4>
+
+            <div style="height:260px;">
+                <canvas id="my3Chart"></canvas>
+            </div>
+
+            <div class="row text-center mt-4">
+                <div class="col-6">
+                    <h4>@Model.Count()</h4>
+                    <p class="text-muted mb-0">Lokasyon Sayısı</p>
+                </div>
+                <div class="col-6">
+                    <h4>@Model.Sum(x => x.availableCarCount)</h4>
+                    <p class="text-muted mb-0">Toplam Müsait Araç</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+<script>
+    const labelsLocation = @Html.Raw(labels);
+    const dataLocation = @Html.Raw(data);
+
+    const ctxLocation = document.getElementById('my3Chart').getContext('2d');
+    new Chart(ctxLocation, {
+        type: 'bar',
+        data: {
+            labels: labelsLocation,
+            datasets: [{
+                label: 'Araç Sayısı',
+                data: dataLocation,
+                backgroundColor: [
+                    '#40a9ff', '#73d13d', '#fa8c16', '#ff4d4f',
+                    '#9254de', '#13c2c2', '#fadb14', '#1890ff'
+                ],
+                borderColor: '#fff',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: { bottom: 20 } // alt kısımda boşluk
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: 'rgba(0,0,0,0.8)',
+                    titleFont: { size: 13 },
+                    bodyFont: { size: 12 },
+                    padding: 10
+                },
+                datalabels: {
+                    anchor: 'end',
+                    align: 'end',
+                    color: '#000',
+                    font: { weight: 'bold', size: 12 },
+                    formatter: value => value
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        autoSkip: false,
+                        font: { size: 11 },
+                        maxRotation: 40,
+                        minRotation: 40,
+                        callback: function(value, index) {
+                            const label = this.getLabelForValue(value);
+                            return label.length > 10 ? label.slice(0, 10) + '…' : label; // uzun isimleri kısalt
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Lokasyonlar',
+                        font: { size: 14, weight: 'bold' }
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: { stepSize: 1, font: { size: 12 } },
+                    title: {
+                        display: true,
+                        text: 'Araç Sayısı',
+                        font: { size: 14, weight: 'bold' }
+                    }
+                }
+            },
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
+</script>

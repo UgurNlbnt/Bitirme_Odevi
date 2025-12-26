@@ -1,0 +1,86 @@
+﻿@model List<GetReviewByCarIdViewModel>
+@{
+    var reviewCount = Model.Count();
+    var FiveStarCount = Model.Count(y => y.RaytingValue == 5);
+    var FourStarCount = Model.Count(y => y.RaytingValue == 4);
+    var ThreeStarCount = Model.Count(y => y.RaytingValue == 3);
+    var TwoStarCount = Model.Count(y => y.RaytingValue == 2);
+    var OneStarCount = Model.Count(y => y.RaytingValue == 1);
+}
+
+        <div class="col-md-7">
+            <h3 class="head">@reviewCount Değerlendirme</h3>
+            @foreach (var item in Model)
+            {
+                <div class="review d-flex">
+                    <div class="user-img" style="background-image: url(@item.CustomerImage)"></div>
+                    <div class="desc">
+                        <h4>
+                            <span class="text-left">@item.CustomerName</span>
+                            <span class="text-right">@item.ReviewDate.ToShortDateString()</span>
+                        </h4>
+                        @if (item.RaytingValue == 1)
+                        {
+                            <p class="star">
+                                <span>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star-outline"></i>
+                                    <i class="ion-ios-star-outline"></i>
+                                    <i class="ion-ios-star-outline"></i>
+                                    <i class="ion-ios-star-outline"></i>
+                                </span>
+                            </p>
+                        }
+                        @if (item.RaytingValue == 2)
+                        {
+                            <p class="star">
+                                <span>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star-outline"></i>
+                                    <i class="ion-ios-star-outline"></i>
+                                    <i class="ion-ios-star-outline"></i>
+                                </span>
+                            </p>
+                        }
+                        @if (item.RaytingValue == 3)
+                        {
+                            <p class="star">
+                                <span>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star-outline"></i>
+                                    <i class="ion-ios-star-outline"></i>
+                                </span>
+                            </p>
+                        }
+                        @if (item.RaytingValue == 4)
+                        {
+                            <p class="star">
+                                <span>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star-outline"></i>
+                                </span>
+                            </p>
+                        }
+                        @if (item.RaytingValue == 5)
+                        {
+                            <p class="star">
+                                <span>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star"></i>
+                                </span>
+                            </p>
+                        }
+                        <p>@item.Comment</p>
+                    </div>
+                </div>
+            }
+        </div>

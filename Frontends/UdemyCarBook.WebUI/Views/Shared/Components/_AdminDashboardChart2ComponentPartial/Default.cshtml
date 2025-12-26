@@ -1,0 +1,93 @@
+﻿@model List<DashboardCarWithBrandViewModel>
+
+@{
+    var labels = Newtonsoft.Json.JsonConvert.SerializeObject(Model.Select(x => x.name).ToList());
+    var data = Newtonsoft.Json.JsonConvert.SerializeObject(Model.Select(x => x.count).ToList());
+}
+
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-body">
+
+            <h4 class="card-title d-inline-block">Markalara Göre Araç Dağılımı</h4>
+
+            <div style="height:260px;">
+                <canvas id="my2Chart"></canvas>
+            </div>
+
+            <div class="row text-center mt-4">
+                <div class="col-6">
+                    <h4>@ViewBag.toplam</h4>
+                    <p class="text-muted mb-0">Araç Sayısı</p>
+                </div>
+                <div class="col-6">
+                    <h4>@Model.Count()</h4>
+                    <p class="text-muted mb-0">Marka Sayısı</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const labelsBrand = @Html.Raw(labels);
+    const dataBrand = @Html.Raw(data);
+
+    const ctxBrand = document.getElementById('my2Chart').getContext('2d');
+    new Chart(ctxBrand, {
+        type: 'pie',
+        data: {
+            labels: labelsBrand,
+            datasets: [{
+                label: 'Marka Grafik Listesi',
+                data: dataBrand,
+                backgroundColor: [
+                    '#ff4d4f', // kırmızı
+                    '#40a9ff', // mavi
+                    '#36cfc9', // turkuaz
+                    '#73d13d', // yeşil
+                    '#fadb14', // sarı
+                    '#9254de', // mor
+                    '#fa8c16', // turuncu
+                    '#13c2c2', // camgöbeği
+                    '#eb2f96', // pembe
+                    '#1890ff'  // açık mavi
+                ],
+                borderColor: '#fff',
+                borderWidth: 2,
+                hoverOffset: 10
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, // fuel kartıyla aynı davranış
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,   // yuvarlak ikon
+                        pointStyle: 'circle',
+                        padding: 15,
+                        font: {
+                            size: 13,
+                            family: 'Inter, sans-serif'
+                        },
+                        color: '#555'
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(0,0,0,0.8)',
+                    titleFont: { size: 14 },
+                    bodyFont: { size: 13 },
+                    padding: 10
+                }
+            },
+            animation: {
+                animateRotate: true,
+                animateScale: true
+            }
+        }
+    });
+</script>
